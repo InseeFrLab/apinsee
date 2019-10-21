@@ -11,6 +11,7 @@
 #'   working directory.
 #' @param appname application name.
 #' @param key,secret consumer key and secret of the application.
+#' @param validity_period integer, length of the validity period in seconds.
 #' @param cache logical indicating if \code{apinsee} should cache
 #'   credentials in the default cache file \code{.httr-oauth}.
 #' @param verbose print message.
@@ -23,6 +24,7 @@ insee_auth <- function(
   appname = "DefaultApplication",
   key = Sys.getenv("INSEE_API_KEY"),
   secret = Sys.getenv("INSEE_API_SECRET"),
+  validity_period = 86400,
   cache = getOption("httr_oauth_cache"),
   verbose = TRUE
 ) {
@@ -51,6 +53,9 @@ insee_auth <- function(
       insee_endpoint,
       user_app,
       scope = scope_list,
+      user_params = list(grant_type = "client_credentials",
+                         validity_period = validity_period
+                         ),
       use_basic_auth = TRUE,
       cache = cache,
       client_credentials = TRUE

@@ -6,7 +6,7 @@
 \usage{
 insee_auth(token = NULL, new_app = FALSE,
   appname = "DefaultApplication", key = Sys.getenv("INSEE_API_KEY"),
-  secret = Sys.getenv("INSEE_API_SECRET"),
+  secret = Sys.getenv("INSEE_API_SECRET"), validity_period = 86400,
   cache = getOption("httr_oauth_cache"), verbose = TRUE)
 }
 \arguments{
@@ -21,6 +21,8 @@ working directory.}
 \item{appname}{application name.}
 
 \item{key, secret}{consumer key and secret of the application.}
+
+\item{validity_period}{integer, length of the validity period in seconds.}
 
 \item{cache}{logical indicating if \code{apinsee} should cache
 credentials in the default cache file \code{.httr-oauth}.}
