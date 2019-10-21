@@ -10,5 +10,11 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    httr
+    httr,
+    R6
 RoxygenNote: 6.1.1
+Collate: 
+    'revoke.R'
+    'token.R'
+    'insee_auth.R'
+    'zzz.R'

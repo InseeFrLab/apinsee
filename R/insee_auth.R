@@ -1,3 +1,6 @@
+#' @include token.R
+NULL
+
 # environment to store credentials
 .state <- new.env(parent = emptyenv())
 
@@ -14,7 +17,7 @@
 #' @param validity_period integer, length of the validity period in seconds.
 #' @param cache logical indicating if \code{apinsee} should cache
 #'   credentials in the default cache file \code{.httr-oauth}.
-#' @param verbose print message.
+#' @param verbose logical; do you want informative messages?
 #'
 #' @return A token.
 #' @export
@@ -35,35 +38,23 @@ insee_auth <- function(
 
   if (is.null(token)) {
 
-    scope_list <- c(.state$nomenclatures_url,
-                    .state$sirene_url,
-                    "https://api.insee.fr/entreprises/sirene/")
+    app <- httr::oauth_app(appname = appname, key = key, secret = secret)
 
-    insee_endpoint <- httr::oauth_endpoint(
-      base_url = "https://api.insee.fr",
-      request = NULL,
-      authorize = NULL,
-      access = "token",
-      revoke = "revoke"
+    user_params <- list(
+      grant_type = "client_credentials",
+      validity_period = validity_period
     )
 
-    user_app <- httr::oauth_app(appname = appname, key = key, secret = secret)
-
-    insee_token <- httr::oauth2.0_token(
-      insee_endpoint,
-      user_app,
-      scope = scope_list,
-      user_params = list(grant_type = "client_credentials",
-                         validity_period = validity_period
-                         ),
-      use_basic_auth = TRUE,
-      cache = cache,
-      client_credentials = TRUE
+    insee_token <- get_insee_token(
+      app = app,
+      user_params = user_params,
+      cache = cache
     )
+
     stopifnot(is_legit_token(insee_token, verbose = TRUE))
     .state$token <- insee_token
 
-  } else if (inherits(token, "Token2.0")) {
+  } else if (inherits(token, "TokenInsee")) {
 
     stopifnot(is_legit_token(token, verbose = TRUE))
     .state$token <- token
@@ -86,9 +77,18 @@ insee_auth <- function(
 
 }
 
-insee_deauth <- function(
-  clear_cache = TRUE, verbose = TRUE
-) {
+#' Suspend authentication
+#'
+#' Suspend access to an application.
+#'
+#' @param clear_cache logical indicating whether to disable the
+#'   \code{.httr-oauth} file in working directory, if such exists, by renaming
+#'   to \code{.httr-oauth-SUSPENDED}
+#' @param verbose logical; do you want informative messages?
+#'
+#' @return
+#' @export
+insee_deauth <- function(clear_cache = TRUE, verbose = TRUE) {
 
   if (clear_cache && file.exists(".httr-oauth")) {
     if (verbose) {
@@ -101,6 +101,7 @@ insee_deauth <- function(
     if (verbose) {
       message("Removing token stashed internally in 'apinsee'.")
     }
+    .state$token$revoke()
     rm("token", envir = .state)
   } else {
     message("No token currently in force.")
@@ -135,8 +136,8 @@ token_available <- function(verbose = TRUE) {
 
 is_legit_token <- function(x, verbose = FALSE) {
 
-  if (!inherits(x, "Token2.0")) {
-    if (verbose) message("Not a Token2.0 object.")
+  if (!inherits(x, "TokenInsee")) {
+    if (verbose) message("Not a TokenInsee object.")
     return(FALSE)
   }
 

@@ -27,7 +27,7 @@ working directory.}
 \item{cache}{logical indicating if \code{apinsee} should cache
 credentials in the default cache file \code{.httr-oauth}.}
 
-\item{verbose}{print message.}
+\item{verbose}{logical; do you want informative messages?}
 }
 \value{
 A token.
