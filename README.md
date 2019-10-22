@@ -5,19 +5,19 @@
 
 <!-- badges: start -->
 
-[![Travis build
-status](https://travis-ci.org/RLesur/apinsee.svg?branch=master)](https://travis-ci.org/RLesur/apinsee)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/apinsee)](https://cran.r-project.org/package=apinsee)
+[![Travis build
+status](https://travis-ci.org/RLesur/apinsee.svg?branch=master)](https://travis-ci.org/RLesur/apinsee)
 [![Codecov test
 coverage](https://codecov.io/gh/RLesur/apinsee/branch/master/graph/badge.svg)](https://codecov.io/gh/RLesur/apinsee?branch=master)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/apinsee)](https://cran.r-project.org/package=apinsee)
 <!-- badges: end -->
 
 **apinsee** est un package pour le langage R destiné à faciliter
 l’authentification aux API de l’Insee accessibles à l’adresse
-<https://api.insee.fr>.
+[api.insee.fr](https://api.insee.fr/).
 
 ## Avertissement
 
@@ -38,7 +38,7 @@ remotes::install_github("rlesur/apinsee")
 ### Créer une application
 
 Créez une application ayant accès à l’API Sirene sur le site
-<https://api.insee.fr/> : voir
+[api.insee.fr](https://api.insee.fr/) : voir
 [l’aide](https://api.insee.fr/catalogue/site/themes/wso2/subthemes/insee/pages/help.jag).
 
 Sauvegardez la clef du consommateur dans la variable d’environnement
