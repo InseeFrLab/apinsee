@@ -45,14 +45,14 @@ insee_auth <- function(
       validity_period = validity_period
     )
 
-    insee_token <- get_insee_token(
+    fetched_token <- get_insee_token(
       app = app,
       user_params = user_params,
       cache = cache
     )
 
-    stopifnot(is_legit_token(insee_token, verbose = TRUE))
-    .state$token <- insee_token
+    stopifnot(is_legit_token(fetched_token, verbose = TRUE))
+    .state$token <- fetched_token
 
   } else if (inherits(token, "TokenInsee")) {
 
@@ -61,13 +61,13 @@ insee_auth <- function(
 
   } else if (inherits(token, "character")) {
 
-    insee_token <- try(suppressWarnings(readRDS(token)), silent = TRUE)
-    if (inherits(insee_token, "try-error")) {
+    cached_token <- try(suppressWarnings(readRDS(token)), silent = TRUE)
+    if (inherits(cached_token, "try-error")) {
       stop(sprintf("Cannot read token from alleged .rds file:\n%s", token), call. = FALSE)
-    } else if (!is_legit_token(insee_token, verbose = TRUE)) {
+    } else if (!is_legit_token(cached_token, verbose = TRUE)) {
       stop(sprintf("File does not contain a proper token:\n%s", token), call. = FALSE)
     }
-    .state$token <- insee_token
+    .state$token <- cached_token
   } else {
     stop("Input provided via 'token' is neither a",
         "token,\nnor a path to an .rds file containing a token.", call. = FALSE)
