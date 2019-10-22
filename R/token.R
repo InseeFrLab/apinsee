@@ -65,7 +65,7 @@ TokenInsee <- R6::R6Class("TokenInsee", inherit = httr::Token2.0, list(
   }
 ))
 
-get_insee_token <- function(app, user_params, cache) {
+insee_token <- function(app, user_params, cache) {
 
   scope <- c(
     .state$nomenclatures_url,

@@ -45,7 +45,7 @@ insee_auth <- function(
       validity_period = validity_period
     )
 
-    fetched_token <- get_insee_token(
+    fetched_token <- insee_token(
       app = app,
       user_params = user_params,
       cache = cache
