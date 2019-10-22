@@ -40,15 +40,10 @@ insee_auth <- function(
 
     app <- httr::oauth_app(appname = appname, key = key, secret = secret)
 
-    user_params <- list(
-      grant_type = "client_credentials",
-      validity_period = validity_period
-    )
-
     fetched_token <- insee_token(
       app = app,
-      user_params = user_params,
-      cache = cache
+      cache = cache,
+      validity_period = validity_period
     )
 
     stopifnot(is_legit_token(fetched_token, verbose = TRUE))

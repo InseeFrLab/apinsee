@@ -4,7 +4,7 @@
 \encoding{UTF-8}
 \name{TokenInsee}
 \alias{TokenInsee}
-\title{Token objects for access to applications}
+\title{Token objects for Insee applications}
 \format{Un objet de classe \code{R6}.}
 \usage{
 TokenInsee
@@ -19,6 +19,7 @@ objets de cette classe doivent être créés en appelant le constructeur
 \section{Methods}{
 
 \itemize{
+\item \code{has_expired()} : le jeton d'accès a-t-il expiré ?
 \item \code{cache()} : sauvegarde le jeton d'accès dans un cache
 \item \code{revoke()} : révoque le jeton d'accès
 }

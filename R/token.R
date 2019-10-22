@@ -1,7 +1,57 @@
 #' @include endpoint.R
 NULL
 
-#' Token objects for access to applications
+#' Generate a token for an Insee application
+#'
+#' Cette fonction génère un jeton d'accès à une application créée sur le site
+#' [api.insee.fr](https://api.insee.fr/).
+#'
+#' @inheritParams httr::oauth2.0_token
+#' @param validity_period An integer; token validity period in seconds.
+#'
+#' @return Un objet de classe [TokenInsee].
+#' @keywords internal
+#' @export
+insee_token <- function(
+  app, cache = getOption("httr_oauth_cache"),
+  config_init = list(), credentials = NULL,
+  validity_period = 86400
+) {
+
+  scope <- c(
+    .state$nomenclatures_url,
+    .state$sirene_url,
+    "https://api.insee.fr/entreprises/sirene/"
+  )
+
+  user_params <- list(
+    grant_type = "client_credentials",
+    validity_period = validity_period
+  )
+
+  params <- list(
+    scope = scope,
+    user_params = user_params,
+    type = NULL,
+    use_oob = getOption("httr_oob_default"),
+    oob_value = NULL,
+    as_header = TRUE,
+    use_basic_auth = TRUE,
+    config_init = config_init,
+    client_credentials = TRUE,
+    query_authorize_extra = list()
+  )
+
+  TokenInsee$new(
+    app = app,
+    endpoint = insee_endpoint(),
+    params = params,
+    credentials = credentials,
+    cache_path = if (is.null(credentials)) cache else FALSE
+  )
+}
+
+#' Token objects for Insee applications
 #'
 #' Cette classe représente les jetons d'accès aux applications créées sur
 #' [api.insee.fr](https://api.insee.fr) et hérite de la classe
@@ -11,6 +61,7 @@ NULL
 #'
 #' @format Un objet de classe `R6`.
 #' @section Methods:
+#' * `has_expired()` : le jeton d'accès a-t-il expiré ?
 #' * `cache()` : sauvegarde le jeton d'accès dans un cache
 #' * `revoke()` : révoque le jeton d'accès
 #' @inheritSection httr::Token Caching
@@ -64,34 +115,3 @@ TokenInsee <- R6::R6Class("TokenInsee", inherit = httr::Token2.0, list(
 
   }
 ))
-
-insee_token <- function(app, user_params, cache) {
-
-  scope <- c(
-    .state$nomenclatures_url,
-    .state$sirene_url,
-    "https://api.insee.fr/entreprises/sirene/"
-  )
-
-  params <- list(
-    scope = scope,
-    user_params = user_params,
-    type = NULL,
-    use_oob = getOption("httr_oob_default"),
-    oob_value = NULL,
-    as_header = TRUE,
-    use_basic_auth = TRUE,
-    config_init = list(),
-    client_credentials = TRUE,
-    query_authorize_extra = list()
-  )
-
-  TokenInsee$new(
-    app = app,
-    endpoint = insee_endpoint(),
-    params = params,
-    credentials = NULL,
-    cache_path = cache
-  )
-}
-
