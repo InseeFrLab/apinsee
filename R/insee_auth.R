@@ -22,7 +22,7 @@ NULL
 #' @return A token.
 #' @export
 insee_auth <- function(
-  token = NULL,
+  token = .state$token,
   new_app = FALSE,
   appname = "DefaultApplication",
   key = Sys.getenv("INSEE_API_KEY"),
@@ -86,7 +86,7 @@ insee_auth <- function(
 #'   to \code{.httr-oauth-SUSPENDED}
 #' @param verbose logical; do you want informative messages?
 #'
-#' @return
+#' @return NULL, invisibly.
 #' @export
 insee_deauth <- function(clear_cache = TRUE, verbose = TRUE) {
 

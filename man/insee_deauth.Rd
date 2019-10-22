@@ -13,6 +13,9 @@ to \code{.httr-oauth-SUSPENDED}}
 
 \item{verbose}{logical; do you want informative messages?}
 }
+\value{
+NULL, invisibly.
+}
 \description{
 Suspend access to an application.
 }
