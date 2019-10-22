@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![Travis build
+status](https://travis-ci.org/RLesur/apinsee.svg?branch=master)](https://travis-ci.org/RLesur/apinsee)
 <!-- badges: end -->
 
 **apinsee** est un package pour le langage R destiné à faciliter
