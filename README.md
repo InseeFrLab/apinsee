@@ -53,8 +53,8 @@ commande `usethis::edit_r_environ("user")`.
 Ajoutez ces deux lignes dans votre fichier `.Renviron` :
 
 ``` bash
-INSEE_API_KEY="xxxxxxxxxxxxxxxxxx"    # clef du consommateur
-INSEE_API_SECRET="yyyyyyyyyyyyyyyyyy" # secret du consommateur
+INSEE_API_KEY=xxxxxxxxxxxxxxxxxx    # clef du consommateur
+INSEE_API_SECRET=yyyyyyyyyyyyyyyyyy # secret du consommateur
 ```
 
 Sauvegardez ce fichier et **redémarrez votre session R**.

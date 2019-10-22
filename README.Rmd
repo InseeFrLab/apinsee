@@ -47,8 +47,8 @@ Pour accéder facilement au fichier `.Renviron`, vous pouvez utiliser la command
 Ajoutez ces deux lignes dans votre fichier `.Renviron` :
 
 ```{bash, eval=FALSE}
-INSEE_API_KEY="xxxxxxxxxxxxxxxxxx"    # clef du consommateur
-INSEE_API_SECRET="yyyyyyyyyyyyyyyyyy" # secret du consommateur
+INSEE_API_KEY=xxxxxxxxxxxxxxxxxx    # clef du consommateur
+INSEE_API_SECRET=yyyyyyyyyyyyyyyyyy # secret du consommateur
 ```
 
 Sauvegardez ce fichier et **redémarrez votre session R**.
