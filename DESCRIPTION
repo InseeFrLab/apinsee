@@ -10,7 +10,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    httr,
+    httr (>= 1.4.0),
     R6
 RoxygenNote: 6.1.1
 Collate: 
