@@ -1,4 +1,4 @@
-#' @include revoke.R endpoint.R
+#' @include endpoint.R
 NULL
 
 #' Token objects for access to applications
