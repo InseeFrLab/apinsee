@@ -4,3 +4,4 @@
 ^README\.Rmd$
 ^\.httr-oauth$
 ^\.travis\.yml$
+^codecov\.yml$

@@ -16,6 +16,9 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Travis build status](https://travis-ci.org/RLesur/apinsee.svg?branch=master)](https://travis-ci.org/RLesur/apinsee)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![CRAN status](https://www.r-pkg.org/badges/version/apinsee)](https://cran.r-project.org/package=apinsee)
+[![Codecov test coverage](https://codecov.io/gh/RLesur/apinsee/branch/master/graph/badge.svg)](https://codecov.io/gh/RLesur/apinsee?branch=master)
 <!-- badges: end -->
 
 **apinsee** est un package pour le langage R destiné à faciliter l'authentification aux API de l'Insee accessibles à l'adresse <https://api.insee.fr>.
