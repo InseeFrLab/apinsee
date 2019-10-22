@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{insee_endpoint}
 \alias{insee_endpoint}
-\title{Get Insee endpoint}
+\title{Get Insee endpoints}
 \usage{
 insee_endpoint()
 }

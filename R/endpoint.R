@@ -1,4 +1,4 @@
-#' Get Insee endpoint
+#' Get Insee endpoints
 #'
 #' Cette fonction renvoie les points d'accès définis par
 #' [api.insee.fr](https://api.insee.fr).
