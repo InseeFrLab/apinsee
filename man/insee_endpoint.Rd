@@ -8,11 +8,13 @@
 insee_endpoint()
 }
 \value{
-Un objet de classe \code{oauth_endpoint}.
+Un objet de classe \link[httr:oauth_endpoint]{oauth_endpoint}.
 }
 \description{
-Cette fonction renvoie le point d'accès aux API de l'Insee.
+Cette fonction renvoie les points d'accès définis par
+\href{https://api.insee.fr}{api.insee.fr}.
 }
 \examples{
 insee_endpoint()
 }
+\keyword{internal}
