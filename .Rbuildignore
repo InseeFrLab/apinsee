@@ -5,3 +5,4 @@
 ^\.httr-oauth$
 ^\.travis\.yml$
 ^codecov\.yml$
+^tests/testthat/\.httr-oauth$
