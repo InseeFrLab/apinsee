@@ -1,6 +1,29 @@
 #' @include revoke.R endpoint.R
 NULL
 
+#' Token objects for access to applications
+#'
+#' Cette classe représente les jetons d'accès aux applications créées sur
+#' [api.insee.fr](https://api.insee.fr) et hérite de la classe
+#' [Token2.0][httr::Token-class] du package [httr][httr::httr-package]. Les
+#' objets de cette classe doivent être créés en appelant le constructeur
+#' `get_insee_token()`.
+#'
+#' @format Un objet de classe `R6`.
+#' @section Methods:
+#' * `cache()` : sauvegarde le jeton d'accès dans un cache
+#' * `revoke()` : révoque le jeton d'accès
+#' @inheritSection httr::Token Caching
+#' @docType class
+#' @keywords internal
+#' @encoding UTF-8
+#' @export
+TokenInsee <- R6::R6Class("TokenInsee", inherit = httr::Token2.0, list(
+  revoke = function() {
+    revoke_apinsee(self$endpoint, self$credentials, self$app)
+  }
+))
+
 get_insee_token <- function(app, user_params, cache) {
 
   scope <- c(
@@ -31,8 +54,3 @@ get_insee_token <- function(app, user_params, cache) {
   )
 }
 
-TokenInsee <- R6::R6Class("TokenInsee", inherit = httr::Token2.0, list(
-  revoke = function() {
-    revoke_apinsee(self$endpoint, self$credentials, self$app)
-  }
-))
