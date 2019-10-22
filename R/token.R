@@ -1,15 +1,7 @@
-#' @include revoke.R
+#' @include revoke.R endpoint.R
 NULL
 
 get_insee_token <- function(app, user_params, cache) {
-
-  endpoint <- httr::oauth_endpoint(
-    base_url = "https://api.insee.fr",
-    request = NULL,
-    authorize = NULL,
-    access = "token",
-    revoke = "revoke"
-  )
 
   scope <- c(
     .state$nomenclatures_url,
@@ -32,7 +24,7 @@ get_insee_token <- function(app, user_params, cache) {
 
   TokenInsee$new(
     app = app,
-    endpoint = endpoint,
+    endpoint = insee_endpoint(),
     params = params,
     credentials = NULL,
     cache_path = cache

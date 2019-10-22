@@ -2,3 +2,4 @@
 
 export(insee_auth)
 export(insee_deauth)
+export(insee_endpoint)

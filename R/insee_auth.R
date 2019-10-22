@@ -7,16 +7,16 @@ NULL
 #' Authenticate to an Insee application
 #'
 #' @param token optional; an actual token object or the path to a valid token
-#'   stored as an \code{.rds} file.
-#' @param new_app logical, defaults to \code{FALSE}. Set to \code{TRUE} if you
+#'   stored as an `.rds` file.
+#' @param new_app logical, defaults to `FALSE`. Set to `TRUE` if you
 #'   want to wipe the slate clean and re-authenticate with the same or different
-#'   application. This disables the \code{.httr-oauth} file in current
+#'   application. This disables the `.httr-oauth` file in current
 #'   working directory.
 #' @param appname application name.
 #' @param key,secret consumer key and secret of the application.
 #' @param validity_period integer, length of the validity period in seconds.
-#' @param cache logical indicating if \code{apinsee} should cache
-#'   credentials in the default cache file \code{.httr-oauth}.
+#' @param cache logical indicating if `apinsee` should cache
+#'   credentials in the default cache file `.httr-oauth`.
 #' @param verbose logical; do you want informative messages?
 #'
 #' @return A token.
@@ -82,8 +82,8 @@ insee_auth <- function(
 #' Suspend access to an application.
 #'
 #' @param clear_cache logical indicating whether to disable the
-#'   \code{.httr-oauth} file in working directory, if such exists, by renaming
-#'   to \code{.httr-oauth-SUSPENDED}
+#'   `.httr-oauth` file in working directory, if such exists, by renaming
+#'   to `.httr-oauth-SUSPENDED`
 #' @param verbose logical; do you want informative messages?
 #'
 #' @return NULL, invisibly.

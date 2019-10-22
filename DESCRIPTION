@@ -14,7 +14,9 @@ Imports:
     R6
 RoxygenNote: 6.1.1
 Collate: 
+    'endpoint.R'
     'revoke.R'
     'token.R'
     'insee_auth.R'
     'zzz.R'
+Roxygen: list(markdown = TRUE)
