@@ -50,7 +50,18 @@ TokenInsee <- R6::R6Class("TokenInsee", inherit = httr::Token2.0, list(
   },
 
   revoke = function() {
-    revoke_apinsee(self$endpoint, self$credentials, self$app)
+
+    res <- httr::POST(
+      self$endpoint$revoke,
+      encode = "form",
+      body = list(token = self$credentials$access_token),
+      httr::authenticate(self$app$key, self$app$secret, type = "basic")
+    )
+
+    httr::stop_for_status(res)
+
+    invisible(TRUE)
+
   }
 ))
 
