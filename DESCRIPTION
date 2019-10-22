@@ -22,4 +22,6 @@ Roxygen: list(markdown = TRUE)
 Suggests: 
     curl,
     covr,
-    testthat (>= 2.1.0),
+    testthat (>= 2.1.0)
+Remotes: 
+    r-lib/covr
