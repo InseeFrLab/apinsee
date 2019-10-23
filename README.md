@@ -42,8 +42,8 @@ Créez une application ayant accès à l’API Sirene sur le site
 [l’aide](https://api.insee.fr/catalogue/site/themes/wso2/subthemes/insee/pages/help.jag).
 
 Sauvegardez la clef du consommateur dans la variable d’environnement
-`INSEE_API_KEY` et le secret du consommateur dans la variable
-d’environnement `INSEE_API_SECRET` : la méthode la plus sûre est
+`INSEE_APP_KEY` et le secret du consommateur dans la variable
+d’environnement `INSEE_APP_SECRET` : la méthode la plus sûre est
 d’enregistrer ces deux variables d’environnement dans votre fichier
 `.Renviron`.
 
@@ -53,8 +53,8 @@ commande `usethis::edit_r_environ("user")`.
 Ajoutez ces deux lignes dans votre fichier `.Renviron` :
 
 ``` bash
-INSEE_API_KEY=xxxxxxxxxxxxxxxxxx    # clef du consommateur
-INSEE_API_SECRET=yyyyyyyyyyyyyyyyyy # secret du consommateur
+INSEE_APP_KEY=xxxxxxxxxxxxxxxxxx    # clef du consommateur
+INSEE_APP_SECRET=yyyyyyyyyyyyyyyyyy # secret du consommateur
 ```
 
 Sauvegardez ce fichier et **redémarrez votre session R**.

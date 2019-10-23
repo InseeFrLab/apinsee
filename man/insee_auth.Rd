@@ -5,8 +5,8 @@
 \title{Authenticate to an Insee application}
 \usage{
 insee_auth(token = .state$token, new_app = FALSE,
-  appname = "DefaultApplication", key = Sys.getenv("INSEE_API_KEY"),
-  secret = Sys.getenv("INSEE_API_SECRET"), validity_period = 86400,
+  appname = "DefaultApplication", key = Sys.getenv("INSEE_APP_KEY"),
+  secret = Sys.getenv("INSEE_APP_SECRET"), validity_period = 86400,
   cache = getOption("httr_oauth_cache"), verbose = TRUE)
 }
 \arguments{
