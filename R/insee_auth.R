@@ -6,8 +6,6 @@ NULL
 
 #' Authenticate to an Insee application
 #'
-#' @param token optional; an actual token object or the path to a valid token
-#'   stored as an `.rds` file.
 #' @param new_app logical, defaults to `FALSE`. Set to `TRUE` if you
 #'   want to wipe the slate clean and re-authenticate with the same or different
 #'   application. This disables the `.httr-oauth` file in current
@@ -22,7 +20,6 @@ NULL
 #' @return A token.
 #' @export
 insee_auth <- function(
-  token = .state$token,
   new_app = FALSE,
   appname = "DefaultApplication",
   key = Sys.getenv("INSEE_APP_KEY"),
@@ -36,7 +33,7 @@ insee_auth <- function(
     insee_deauth(clear_cache = TRUE, verbose = verbose)
   }
 
-  if (is.null(token)) {
+  if (is.null(.state$token)) {
 
     app <- httr::oauth_app(appname = appname, key = key, secret = secret)
 
@@ -49,23 +46,6 @@ insee_auth <- function(
     stopifnot(is_legit_token(fetched_token, verbose = TRUE))
     .state$token <- fetched_token
 
-  } else if (inherits(token, "TokenInsee")) {
-
-    stopifnot(is_legit_token(token, verbose = TRUE))
-    .state$token <- token
-
-  } else if (inherits(token, "character")) {
-
-    cached_token <- try(suppressWarnings(readRDS(token)), silent = TRUE)
-    if (inherits(cached_token, "try-error")) {
-      stop(sprintf("Cannot read token from alleged .rds file:\n%s", token), call. = FALSE)
-    } else if (!is_legit_token(cached_token, verbose = TRUE)) {
-      stop(sprintf("File does not contain a proper token:\n%s", token), call. = FALSE)
-    }
-    .state$token <- cached_token
-  } else {
-    stop("Input provided via 'token' is neither a",
-        "token,\nnor a path to an .rds file containing a token.", call. = FALSE)
   }
 
   invisible(.state$token)

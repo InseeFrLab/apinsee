@@ -4,15 +4,12 @@
 \alias{insee_auth}
 \title{Authenticate to an Insee application}
 \usage{
-insee_auth(token = .state$token, new_app = FALSE,
-  appname = "DefaultApplication", key = Sys.getenv("INSEE_APP_KEY"),
+insee_auth(new_app = FALSE, appname = "DefaultApplication",
+  key = Sys.getenv("INSEE_APP_KEY"),
   secret = Sys.getenv("INSEE_APP_SECRET"), validity_period = 86400,
   cache = getOption("httr_oauth_cache"), verbose = TRUE)
 }
 \arguments{
-\item{token}{optional; an actual token object or the path to a valid token
-stored as an \code{.rds} file.}
-
 \item{new_app}{logical, defaults to \code{FALSE}. Set to \code{TRUE} if you
 want to wipe the slate clean and re-authenticate with the same or different
 application. This disables the \code{.httr-oauth} file in current
