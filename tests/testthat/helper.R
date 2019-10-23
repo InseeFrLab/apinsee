@@ -4,3 +4,8 @@ skip_if_no_app <- function() {
   }
   testthat::skip("Environment variables INSEE_APP_KEY and INSEE_APP_SECRET are not defined.")
 }
+
+check_configuration <- function() {
+  skip_if_no_app()
+  skip_if_offline("api.insee.fr")
+}
