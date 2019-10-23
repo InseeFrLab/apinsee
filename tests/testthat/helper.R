@@ -8,4 +8,5 @@ skip_if_no_app <- function() {
 check_configuration <- function() {
   skip_if_no_app()
   skip_if_offline("api.insee.fr")
+  skip_if_not_installed("httpuv")
 }
