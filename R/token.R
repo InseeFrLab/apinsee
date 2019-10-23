@@ -70,7 +70,6 @@ insee_token <- function(
 #' @encoding UTF-8
 #' @export
 TokenInsee <- R6::R6Class("TokenInsee", inherit = httr::Token2.0, list(
-  expiration_time = NULL,
 
   print = function(...) {
     super$print()
@@ -78,7 +77,7 @@ TokenInsee <- R6::R6Class("TokenInsee", inherit = httr::Token2.0, list(
     if(self$has_expired()) {
       cat("expired token\n")
     } else {
-      cat("expiration date:", format(self$expiration_time), "\n")
+      cat("expiration date:", format(self$credentials$expiration_time), "\n")
     }
     cat("---\n")
   },
@@ -86,14 +85,16 @@ TokenInsee <- R6::R6Class("TokenInsee", inherit = httr::Token2.0, list(
   init_credentials = function() {
     super$init_credentials()
 
-    self$expiration_time <-
-      Sys.time() + self$credentials$expires_in
+    if (is.null(self$credentials$expiration_time)) {
+      self$credentials$expiration_time <-
+        Sys.time() + self$credentials$expires_in
+    }
   },
 
   has_expired = function() {
-    if (is.null(self$expiration_time)) return(TRUE)
+    if (is.null(self$credentials$expiration_time)) return(TRUE)
 
-    Sys.time() > self$expiration_time
+    Sys.time() > self$credentials$expiration_time
   },
 
   load_from_cache = function() {
