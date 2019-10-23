@@ -1,4 +1,4 @@
-test_that("insee_token returns an OAuth2.0 token", {
+test_that("insee_token() returns an OAuth2.0 token", {
   check_configuration()
   app <- httr::oauth_app("Test", Sys.getenv("INSEE_APP_KEY"), Sys.getenv("INSEE_APP_SECRET"))
   token <- insee_token(app, cache = FALSE)
