@@ -7,7 +7,7 @@ NULL
 #' [api.insee.fr](https://api.insee.fr/).
 #'
 #' @inheritParams httr::oauth2.0_token
-#' @param validity_period An integer; token validity period in seconds.
+#' @param validity_period A positive integer; token validity period in seconds.
 #'
 #' @return Un objet de classe [TokenInsee].
 #' @keywords internal
@@ -17,6 +17,11 @@ insee_token <- function(
   config_init = list(), credentials = NULL,
   validity_period = 86400
 ) {
+
+  stopifnot(
+    rlang::is_scalar_integerish(validity_period, finite = TRUE),
+    validity_period > 0
+  )
 
   scope <- c(
     .state$nomenclatures_url,

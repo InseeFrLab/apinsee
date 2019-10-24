@@ -5,14 +5,19 @@ skip_if_no_app <- function() {
   testthat::skip("Environment variables INSEE_APP_KEY and INSEE_APP_SECRET are not defined.")
 }
 
-check_configuration <- function() {
+app_maybe <- function() {
   skip_if_no_app()
+  httr::oauth_app("Test", Sys.getenv("INSEE_APP_KEY"), Sys.getenv("INSEE_APP_SECRET"))
+}
+
+check_configuration <- function() {
   skip_if_offline("api.insee.fr")
   skip_if_not_installed("httpuv")
 }
 
 fetch_token_maybe <- function() {
   check_configuration()
-  app <- httr::oauth_app("Test", Sys.getenv("INSEE_APP_KEY"), Sys.getenv("INSEE_APP_SECRET"))
-  insee_token(app, cache = FALSE)
+  insee_token(app_maybe(), cache = FALSE)
 }
+
+mocked_app <- httr::oauth_app("Test", "abcd", "1234")
