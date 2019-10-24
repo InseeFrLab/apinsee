@@ -7,7 +7,7 @@
 insee_auth(new_auth = FALSE, appname = "DefaultApplication",
   key = Sys.getenv("INSEE_APP_KEY"),
   secret = Sys.getenv("INSEE_APP_SECRET"), validity_period = 86400,
-  cache = getOption("httr_oauth_cache"), verbose = TRUE)
+  cache = FALSE, verbose = TRUE)
 }
 \arguments{
 \item{new_auth}{logical, defaults to \code{FALSE}. Set to \code{TRUE} if you

@@ -1,6 +1,6 @@
 Package: apinsee
 Title: Manage Access to Insee APIs
-Version: 0.0.0.9013
+Version: 0.0.0.9014
 Authors@R: c(
     person("Romain", "Lesur", role = c("aut", "cre"), email = "romain.lesur@gmail.com", comment = c(ORCID = "0000-0002-0721-5595")),
     person()

@@ -25,7 +25,7 @@ insee_auth <- function(
   key = Sys.getenv("INSEE_APP_KEY"),
   secret = Sys.getenv("INSEE_APP_SECRET"),
   validity_period = 86400,
-  cache = getOption("httr_oauth_cache"),
+  cache = FALSE,
   verbose = TRUE
 ) {
 
