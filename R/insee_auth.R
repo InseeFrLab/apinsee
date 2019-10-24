@@ -2,7 +2,7 @@
 NULL
 
 # environment to store credentials
-.state <- new.env(parent = emptyenv())
+.mem_cache <- new.env(parent = emptyenv())
 
 #' Authenticate to an Insee application
 #'
@@ -33,7 +33,7 @@ insee_auth <- function(
     insee_deauth(clear_cache = TRUE, verbose = verbose)
   }
 
-  if (is.null(.state$token)) {
+  if (is.null(.mem_cache$token)) {
 
     app <- httr::oauth_app(appname = appname, key = key, secret = secret)
 
@@ -44,11 +44,11 @@ insee_auth <- function(
     )
 
     stopifnot(is_legit_token(fetched_token, verbose = TRUE))
-    .state$token <- fetched_token
+    .mem_cache$token <- fetched_token
 
   }
 
-  invisible(.state$token)
+  invisible(.mem_cache$token)
 
 }
 
@@ -76,8 +76,8 @@ insee_deauth <- function(clear_cache = TRUE, verbose = TRUE) {
     if (verbose) {
       message("Removing token stashed internally in 'apinsee'.")
     }
-    .state$token$revoke()
-    rm("token", envir = .state)
+    .mem_cache$token$revoke()
+    rm("token", envir = .mem_cache)
   } else {
     message("No token currently in force.")
   }
@@ -88,7 +88,7 @@ insee_deauth <- function(clear_cache = TRUE, verbose = TRUE) {
 
 token_available <- function(verbose = TRUE) {
 
-  if (is.null(.state$token)) {
+  if (is.null(.mem_cache$token)) {
     if (verbose) {
       if (file.exists(".httr-oauth")) {
         message("A .httr-oauth file exists in current working ",
