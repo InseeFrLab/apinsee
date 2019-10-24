@@ -2,7 +2,7 @@
 NULL
 
 # environment to store credentials
-.mem_cache <- new.env(parent = emptyenv())
+.mem_cache <- rlang::new_environment()
 
 #' Authenticate to an Insee application
 #'
