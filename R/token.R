@@ -102,7 +102,9 @@ TokenInsee <- R6::R6Class("TokenInsee", inherit = httr::Token2.0, list(
   },
 
   revoke = function() {
-
+    # httr:::revoke_oauth2.0() does not implement correctly the following specification:
+    # https://tools.ietf.org/html/rfc7009#section-2.1
+    # I will open an issue in r-lib/httr
     res <- httr::POST(
       self$endpoint$revoke,
       encode = "form",
@@ -111,6 +113,8 @@ TokenInsee <- R6::R6Class("TokenInsee", inherit = httr::Token2.0, list(
     )
 
     httr::stop_for_status(res)
+
+    self$credentials$expiration_time <- Sys.time()
 
     invisible(TRUE)
 
