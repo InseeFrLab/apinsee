@@ -25,8 +25,8 @@ insee_token <- function(
   )
 
   scope <- c(
-    .state$nomenclatures_url,
-    .state$sirene_url,
+    "https://api.insee.fr/metadonnees/nomenclatures/v1",
+    "https://api.insee.fr/entreprises/sirene/V3",
     "https://api.insee.fr/entreprises/sirene/"
   )
 
