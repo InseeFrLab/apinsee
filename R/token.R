@@ -11,6 +11,7 @@ NULL
 #'
 #' @return Un objet de classe [TokenInsee].
 #' @keywords internal
+#' @encoding UTF-8
 #' @export
 insee_token <- function(
   app, cache = getOption("httr_oauth_cache"),
