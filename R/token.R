@@ -70,6 +70,9 @@ insee_token <- function(
 #' * `has_expired()` : le jeton d'accès a-t-il expiré ?
 #' * `cache()` : sauvegarde le jeton d'accès dans un cache
 #' * `revoke()` : révoque le jeton d'accès
+#' * `refresh()` : rafraichit le jeton d'accès (le point d'accès de
+#' rafraichissement OAuth2 n'étant pas disponible, le jeton d'accès
+#' courant est révoqué puis un nouveau jeton d'accès est généré)
 #' @inheritSection httr::Token Caching
 #' @docType class
 #' @keywords internal
@@ -121,8 +124,18 @@ TokenInsee <- R6::R6Class("TokenInsee", inherit = httr::Token2.0, list(
     httr::stop_for_status(res)
 
     self$credentials$expiration_time <- Sys.time()
+    self$cache()
+    invisible(self)
+  },
 
-    invisible(TRUE)
+  refresh = function() {
+    self$revoke()
+    self$init_credentials()
+    self$cache()
+    invisible(self)
+  },
 
+  can_refresh = function() {
+    TRUE
   }
 ))

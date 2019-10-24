@@ -22,6 +22,9 @@ objets de cette classe doivent être créés en appelant le constructeur
 \item \code{has_expired()} : le jeton d'accès a-t-il expiré ?
 \item \code{cache()} : sauvegarde le jeton d'accès dans un cache
 \item \code{revoke()} : révoque le jeton d'accès
+\item \code{refresh()} : rafraichit le jeton d'accès (le point d'accès de
+rafraichissement OAuth2 n'étant pas disponible, le jeton d'accès
+courant est révoqué puis un nouveau jeton d'accès est généré)
 }
 }
 
