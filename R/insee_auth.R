@@ -6,8 +6,8 @@ NULL
 
 #' Authenticate to an Insee application
 #'
-#' @param new_app logical, defaults to `FALSE`. Set to `TRUE` if you
-#'   want to wipe the slate clean and re-authenticate with the same or different
+#' @param new_auth logical, defaults to `FALSE`. Set to `TRUE` if you
+#'   want to wipe the slate clean and re-authenticate with the same
 #'   application. This disables the `.httr-oauth` file in current
 #'   working directory.
 #' @param appname application name.
@@ -20,7 +20,7 @@ NULL
 #' @return A token.
 #' @export
 insee_auth <- function(
-  new_app = FALSE,
+  new_auth = FALSE,
   appname = "DefaultApplication",
   key = Sys.getenv("INSEE_APP_KEY"),
   secret = Sys.getenv("INSEE_APP_SECRET"),
@@ -29,7 +29,7 @@ insee_auth <- function(
   verbose = TRUE
 ) {
 
-  if (new_app) {
+  if (new_auth) {
     insee_deauth(clear_cache = TRUE, verbose = verbose)
   }
 
