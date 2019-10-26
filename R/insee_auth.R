@@ -1,8 +1,5 @@
-#' @include token.R
+#' @include token.R utils.R
 NULL
-
-# environment to store credentials
-.mem_cache <- rlang::new_environment()
 
 #' Authenticate to an Insee application
 #'
@@ -30,25 +27,26 @@ insee_auth <- function(
 ) {
 
   if (new_auth) {
-    insee_deauth(clear_cache = TRUE, verbose = verbose)
+    insee_deauth(verbose = verbose)
   }
 
-  if (is.null(.mem_cache$token)) {
+  token <- load_from_memory_cache(key)
 
+  if (is.null(token) || token$has_expired()) {
     app <- httr::oauth_app(appname = appname, key = key, secret = secret)
 
-    fetched_token <- insee_token(
+    token <- insee_token(
       app = app,
       cache = cache,
       validity_period = validity_period
     )
 
-    stopifnot(is_legit_token(fetched_token, verbose = TRUE))
-    .mem_cache$token <- fetched_token
+    stopifnot(is_legit_token(token, verbose = TRUE))
 
+    cache_in_memory(token)
   }
 
-  invisible(.mem_cache$token)
+  invisible(token)
 
 }
 
@@ -56,56 +54,29 @@ insee_auth <- function(
 #'
 #' Suspend access to an application.
 #'
-#' @param clear_cache logical indicating whether to disable the
-#'   `.httr-oauth` file in working directory, if such exists, by renaming
-#'   to `.httr-oauth-SUSPENDED`
 #' @param verbose logical; do you want informative messages?
 #'
 #' @return NULL, invisibly.
 #' @export
-insee_deauth <- function(clear_cache = TRUE, verbose = TRUE) {
+insee_deauth <- function(verbose = TRUE) {
 
-  if (clear_cache && file.exists(".httr-oauth")) {
+  tokens <- as.list(.memory_cache)
+  lapply(tokens, function(token) {
     if (verbose) {
-      message("Disabling .httr-oauth by renaming to .httr-oauth-SUSPENDED")
+      message("Revoking token for application ", token$app$key)
     }
-    file.rename(".httr-oauth", ".httr-oauth-SUSPENDED")
-  }
+    token$revoke()
+    if (verbose) {
+      message("Removing token for application ", token$app$key ," stashed internally in 'apinsee'.")
+    }
+    rlang::env_unbind(.memory_cache, token$app$key)
+  })
 
-  if (token_available(verbose = FALSE)) {
-    if (verbose) {
-      message("Removing token stashed internally in 'apinsee'.")
-    }
-    .mem_cache$token$revoke()
-    rm("token", envir = .mem_cache)
-  } else {
+  if (verbose && length(tokens) == 0) {
     message("No token currently in force.")
   }
 
   invisible(NULL)
-
-}
-
-token_available <- function(verbose = TRUE) {
-
-  if (is.null(.mem_cache$token)) {
-    if (verbose) {
-      if (file.exists(".httr-oauth")) {
-        message("A .httr-oauth file exists in current working ",
-                "directory.\nWhen/if needed, the credentials cached in ",
-                ".httr-oauth will be used for this session.\nOr run insee_auth() ",
-                "for explicit authentication and authorization.")
-      } else {
-        message("No .httr-oauth file exists in current working directory.\n",
-                "When/if needed, 'apinsee' will initiate authentication ",
-                "and authorization.\nOr run insee_auth() to trigger this ",
-                "explicitly.")
-      }
-    }
-    return(FALSE)
-  }
-
-  TRUE
 
 }
 
@@ -131,3 +102,4 @@ is_legit_token <- function(x, verbose = FALSE) {
   TRUE
 
 }
+

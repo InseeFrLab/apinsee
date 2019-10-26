@@ -4,13 +4,9 @@
 \alias{insee_deauth}
 \title{Suspend authentication}
 \usage{
-insee_deauth(clear_cache = TRUE, verbose = TRUE)
+insee_deauth(verbose = TRUE)
 }
 \arguments{
-\item{clear_cache}{logical indicating whether to disable the
-\code{.httr-oauth} file in working directory, if such exists, by renaming
-to \code{.httr-oauth-SUSPENDED}}
-
 \item{verbose}{logical; do you want informative messages?}
 }
 \value{

@@ -1,6 +1,6 @@
 Package: apinsee
 Title: Manage Access to Insee APIs
-Version: 0.0.0.9015
+Version: 0.0.0.9020
 Authors@R: c(
     person("Romain", "Lesur", role = c("aut", "cre"), email = "romain.lesur@gmail.com", comment = c(ORCID = "0000-0002-0721-5595")),
     person()
@@ -16,6 +16,7 @@ Imports:
 RoxygenNote: 6.1.1
 Collate: 
     'endpoint.R'
+    'utils.R'
     'token.R'
     'insee_auth.R'
     'zzz.R'
