@@ -34,3 +34,14 @@ test_that("insee_auth() new_auth parameter works", {
   insee_deauth(FALSE)
   expect_message(insee_auth(new_auth = TRUE))
 })
+
+test_that("insee_auth() fetches seamlessly a new fresh token", {
+  check_configuration()
+  skip_if_no_app()
+  insee_deauth(FALSE)
+  token <- insee_auth()
+  token$revoke()
+  expect_true(token$has_expired())
+  token2 <- insee_auth()
+  expect_false(token2$has_expired())
+})
