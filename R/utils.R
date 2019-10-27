@@ -1,3 +1,6 @@
+#' @importFrom rlang :=
+NULL
+
 # environment to store credentials
 .memory_cache <- rlang::new_environment()
 
