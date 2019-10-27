@@ -21,6 +21,11 @@ test_that("refresh() method works", {
   expect_false(token$has_expired())
 })
 
+test_that("print() method works", {
+  token <- fetch_token_maybe()
+  expect_output(print(token))
+})
+
 test_that("validity_period must be a positive integer", {
   expect_error(insee_token(mocked_app, validity_period = 1.5))
   expect_error(insee_token(mocked_app, validity_period = -1L))
