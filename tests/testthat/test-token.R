@@ -5,6 +5,16 @@ test_that("insee_token() returns an OAuth2.0 token", {
 })
 
 test_that("When a token is revoked, has_expired() method returns TRUE", {
+  credentials <- list(
+    access_tokens = "aaa",
+    scope = "am_application_scope default",
+    token_type = "Bearer",
+    expires_in = "100000",
+    expiration_time = Sys.time() - 1
+  )
+  token <- insee_token(app = mocked_app, credentials = credentials)
+  expect_true(token$has_expired())
+
   token <- fetch_token_maybe()
   token$revoke()
   Sys.sleep(0.1)
@@ -24,6 +34,9 @@ test_that("refresh() method works", {
 test_that("print() method works", {
   token <- fetch_token_maybe()
   expect_output(print(token))
+  token$revoke()
+  Sys.sleep(0.1)
+  expect_output(print(token), "expired")
 })
 
 test_that("validity_period must be a positive integer", {

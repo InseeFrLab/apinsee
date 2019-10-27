@@ -101,8 +101,6 @@ TokenInsee <- R6::R6Class("TokenInsee", inherit = httr::Token2.0, list(
   },
 
   has_expired = function() {
-    if (is.null(self$credentials$expiration_time)) return(TRUE)
-
     Sys.time() > self$credentials$expiration_time
   },
 
