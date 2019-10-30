@@ -13,6 +13,7 @@ NULL
 #' @param cache logical indicating if `apinsee` should cache
 #'   credentials in the default cache file `.httr-oauth`.
 #' @param verbose logical; do you want informative messages?
+#' @inheritParams insee_endpoint
 #'
 #' @return A token.
 #' @export
@@ -23,7 +24,8 @@ insee_auth <- function(
   secret = Sys.getenv("INSEE_APP_SECRET"),
   validity_period = 86400,
   cache = FALSE,
-  verbose = TRUE
+  verbose = TRUE,
+  insee_url = getOption("apinsee.url")
 ) {
 
   if (new_auth) {
@@ -38,7 +40,8 @@ insee_auth <- function(
     token <- insee_token(
       app = app,
       cache = cache,
-      validity_period = validity_period
+      validity_period = validity_period,
+      insee_url = insee_url
     )
 
     stopifnot(is_legit_token(token, verbose = TRUE))

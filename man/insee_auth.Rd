@@ -7,7 +7,8 @@
 insee_auth(new_auth = FALSE, appname = "DefaultApplication",
   key = Sys.getenv("INSEE_APP_KEY"),
   secret = Sys.getenv("INSEE_APP_SECRET"), validity_period = 86400,
-  cache = FALSE, verbose = TRUE)
+  cache = FALSE, verbose = TRUE,
+  insee_url = getOption("apinsee.url"))
 }
 \arguments{
 \item{new_auth}{logical, defaults to \code{FALSE}. Set to \code{TRUE} if you
@@ -25,6 +26,9 @@ working directory.}
 credentials in the default cache file \code{.httr-oauth}.}
 
 \item{verbose}{logical; do you want informative messages?}
+
+\item{insee_url}{Adresse du site fournissant les API. Ce paramètre n'est
+utile que pour un usage interne à l'Insee, voir \link{insee_endpoint}.}
 }
 \value{
 A token.
