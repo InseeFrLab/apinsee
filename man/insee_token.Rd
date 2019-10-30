@@ -6,7 +6,8 @@
 \title{Generate a token for an Insee application}
 \usage{
 insee_token(app, cache = getOption("httr_oauth_cache"),
-  config_init = list(), credentials = NULL, validity_period = 86400)
+  config_init = list(), credentials = NULL, validity_period = 86400,
+  insee_url = getOption("apinsee.url"))
 }
 \arguments{
 \item{app}{An OAuth consumer application, created by
@@ -24,6 +25,9 @@ A string means use the specified path as the cache file.}
 token generation.}
 
 \item{validity_period}{A positive integer; token validity period in seconds.}
+
+\item{insee_url}{Adresse du site fournissant les API. Ce paramètre n'est
+utile que pour un usage interne à l'Insee, voir \link{insee_endpoint}.}
 }
 \value{
 Un objet de classe \link{TokenInsee}.

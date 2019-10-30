@@ -245,9 +245,15 @@ apinsee::insee_auth(
 )
 ```
 
-## TODO
+## Utilisation interne à l’Insee
 
-  - Offrir des fonctions qui gèrent les jetons d’accès expirés.
+**apinsee** peut également être utilisé au sein de l’Insee pour les
+agents qui souhaiteraient accéder aux plateformes de test, recette ou
+pré-production. Le plus simple est de modifier l’option `apinsee.url`
+de la façon suivante :
 
-  - Vérifier s’il existe un point d’accès de validation des jetons
-    d’accès.
+``` r
+options(apinsee.url = "adresse.de.la.plateforme")
+```
+
+Il n’y a rien d’autre à modifier dans vos programmes.

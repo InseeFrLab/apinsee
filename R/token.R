@@ -7,6 +7,7 @@ NULL
 #' [api.insee.fr](https://api.insee.fr/).
 #'
 #' @inheritParams httr::oauth2.0_token
+#' @inheritParams insee_endpoint
 #' @param validity_period A positive integer; token validity period in seconds.
 #'
 #' @return Un objet de classe [TokenInsee].
@@ -16,7 +17,7 @@ NULL
 insee_token <- function(
   app, cache = getOption("httr_oauth_cache"),
   config_init = list(), credentials = NULL,
-  validity_period = 86400
+  validity_period = 86400, insee_url = getOption("apinsee.url")
 ) {
 
   stopifnot(
@@ -24,11 +25,7 @@ insee_token <- function(
     validity_period > 0
   )
 
-  scope <- c(
-    "https://api.insee.fr/metadonnees/nomenclatures/v1",
-    "https://api.insee.fr/entreprises/sirene/V3",
-    "https://api.insee.fr/entreprises/sirene/"
-  )
+  scope <- insee_scope()
 
   user_params <- list(
     grant_type = "client_credentials",
