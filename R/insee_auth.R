@@ -3,6 +3,32 @@ NULL
 
 #' Authenticate to an Insee application
 #'
+#' Cette fonction permet de s'authentifier via une application créée sur
+#' [api.insee.fr](https://api.insee.fr/) : elle renvoie un jeton d'accès
+#' valide qui peut ensuite être passé en valeur du paramètre `token` de
+#' la fonction [httr::config()][httr::config].
+#'
+#' @details
+#' Le couple clef du consommateur/secret du consommateur de l'application
+#' devant rester secret, il est vivement recommandé de ne jamais l'inclure
+#' dans un programme. La pratique recommandée est d'utiliser des variables
+#' d'environnement pour stocker ces informations. La fonction `insee_auth()`
+#' utilise deux variables d'environnement nommées `INSEE_APP_KEY` et
+#' `INSEE_APP_SECRET`. Une fois renseignées, l'authentification s'effectue par
+#' un simple appel à la fonction `insee_auth()`.
+#'
+#' @details
+#' Les variables d'environnement peuvent être déclarées dans le fichier
+#' [`.Renviron`][base::Startup]. La modification de ce fichier peut s'effectuer
+#' facilement grâce la fonction [usethis::edit_r_environ()][usethis::edit].
+#'
+#' @section Utilisation interne à l'Insee:
+#' Les agents de l'Insee qui souhaiteraient accéder aux plateformes de test, de
+#' recette ou de pré-production doivent modifier en conséquence l'adresse
+#' d'accès. Pour ce faire, il est recommandé de modifier la valeur de l'option
+#' `apinsee.url`. Les programmes seront ainsi facilement portables d'un
+#' environnement à un autre.
+#'
 #' @param new_auth logical, defaults to `FALSE`. Set to `TRUE` if you
 #'   want to wipe the slate clean and re-authenticate with the same
 #'   application. This disables the `.httr-oauth` file in current
@@ -14,9 +40,25 @@ NULL
 #'   credentials in the default cache file `.httr-oauth`.
 #' @param verbose logical; do you want informative messages?
 #' @inheritParams insee_endpoint
+#' @encoding UTF-8
 #'
-#' @return A token.
+#' @return Un objet représentant un token.
+#' @seealso [insee_deauth], [TokenInsee]
 #' @export
+#' @examples
+#' # Modify the following option to access to a different url
+#' # options(apinsee.url = "https://api.insee.fr/")
+#'
+#' library(apinsee)
+#' library(httr)
+#'
+#' # Set the environment variables INSEE_APP_KEY and INSEE_APP_SECRET in the .Renviron file
+#' if (all(nzchar(Sys.getenv(c("INSEE_APP_KEY", "INSEE_APP_SECRET"))))) {
+#'   # retrieve the token
+#'   token <- insee_auth()
+#'   # use the token
+#'   set_config(config(token = token))
+#' }
 insee_auth <- function(
   new_auth = FALSE,
   appname = "DefaultApplication",
