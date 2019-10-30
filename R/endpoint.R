@@ -3,15 +3,18 @@
 #' Cette fonction renvoie les points d'accès définis par
 #' [api.insee.fr](https://api.insee.fr).
 #'
+#' @section Utilisation interne à l'Insee:
 #' Dans le cas d'utilisation standard, la valeur de l'option `apinsee.url` est
 #' `"https://api.insee.fr/"`. Il n'est pas utile de la modifier sauf pour les
 #' agents de l'Insee qui souhaiteraient utiliser les plateformes de test, de
 #' recette ou de pré-production. Dans ce cas, il est préférable de déclarer
 #' l'adresse en modifiant l'option `apinsee.url` :
-#' `options(apinsee.url = "<URL>")`.
+#' `options(apinsee.url = "<URL>")`. Les programmes seront ainsi facilement
+#' portables d'un environnement à un autre.
 #'
 #' @param insee_url Adresse du site fournissant les API. Ce paramètre n'est
-#'     utile que pour un usage interne à l'Insee, voir [insee_endpoint].
+#'   utile que pour un usage interne à l'Insee, voir la section "Utilisation
+#'   interne à l'Insee".
 #' @return Un objet de classe [oauth_endpoint][httr::oauth_endpoint].
 #' @export
 #'

@@ -22,13 +22,6 @@ NULL
 #' [`.Renviron`][base::Startup]. La modification de ce fichier peut s'effectuer
 #' facilement grâce la fonction [usethis::edit_r_environ()][usethis::edit].
 #'
-#' @section Utilisation interne à l'Insee:
-#' Les agents de l'Insee qui souhaiteraient accéder aux plateformes de test, de
-#' recette ou de pré-production doivent modifier en conséquence l'adresse
-#' d'accès. Pour ce faire, il est recommandé de modifier la valeur de l'option
-#' `apinsee.url`. Les programmes seront ainsi facilement portables d'un
-#' environnement à un autre.
-#'
 #' @param new_auth booléen, valeur par défaut : `FALSE`. Passer `TRUE` si vous
 #'   souhaitez révoquer le jeton d'accès et vous authentifier à nouveau.
 #' @param appname nom de l'application.
@@ -38,6 +31,7 @@ NULL
 #'   d'accès dans un fichier cache, par défaut `.httr-oauth`.
 #' @param verbose booléen; souhaitez-vous des messages d'information ?
 #' @inheritParams insee_endpoint
+#' @inheritSection insee_endpoint Utilisation interne à l'Insee
 #' @encoding UTF-8
 #'
 #' @return Un objet représentant un token pouvant être passé en valeur du

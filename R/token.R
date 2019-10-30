@@ -8,6 +8,7 @@ NULL
 #'
 #' @inheritParams httr::oauth2.0_token
 #' @inheritParams insee_endpoint
+#' @inheritSection insee_endpoint Utilisation interne à l'Insee
 #' @param validity_period A positive integer; token validity period in seconds.
 #'
 #' @return Un objet de classe [TokenInsee].

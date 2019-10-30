@@ -27,7 +27,8 @@ token generation.}
 \item{validity_period}{A positive integer; token validity period in seconds.}
 
 \item{insee_url}{Adresse du site fournissant les API. Ce paramètre n'est
-utile que pour un usage interne à l'Insee, voir \link{insee_endpoint}.}
+utile que pour un usage interne à l'Insee, voir la section "Utilisation
+interne à l'Insee".}
 }
 \value{
 Un objet de classe \link{TokenInsee}.
@@ -36,4 +37,15 @@ Un objet de classe \link{TokenInsee}.
 Cette fonction génère un jeton d'accès à une application créée sur le site
 \href{https://api.insee.fr/}{api.insee.fr}.
 }
+\section{Utilisation interne à l'Insee}{
+
+Dans le cas d'utilisation standard, la valeur de l'option \code{apinsee.url} est
+\code{"https://api.insee.fr/"}. Il n'est pas utile de la modifier sauf pour les
+agents de l'Insee qui souhaiteraient utiliser les plateformes de test, de
+recette ou de pré-production. Dans ce cas, il est préférable de déclarer
+l'adresse en modifiant l'option \code{apinsee.url} :
+\code{options(apinsee.url = "<URL>")}. Les programmes seront ainsi facilement
+portables d'un environnement à un autre.
+}
+
 \keyword{internal}

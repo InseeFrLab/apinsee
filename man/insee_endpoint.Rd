@@ -9,7 +9,8 @@ insee_endpoint(insee_url = getOption("apinsee.url"))
 }
 \arguments{
 \item{insee_url}{Adresse du site fournissant les API. Ce paramètre n'est
-utile que pour un usage interne à l'Insee, voir \link{insee_endpoint}.}
+utile que pour un usage interne à l'Insee, voir la section "Utilisation
+interne à l'Insee".}
 }
 \value{
 Un objet de classe \link[httr:oauth_endpoint]{oauth_endpoint}.
@@ -18,14 +19,17 @@ Un objet de classe \link[httr:oauth_endpoint]{oauth_endpoint}.
 Cette fonction renvoie les points d'accès définis par
 \href{https://api.insee.fr}{api.insee.fr}.
 }
-\details{
+\section{Utilisation interne à l'Insee}{
+
 Dans le cas d'utilisation standard, la valeur de l'option \code{apinsee.url} est
 \code{"https://api.insee.fr/"}. Il n'est pas utile de la modifier sauf pour les
 agents de l'Insee qui souhaiteraient utiliser les plateformes de test, de
 recette ou de pré-production. Dans ce cas, il est préférable de déclarer
 l'adresse en modifiant l'option \code{apinsee.url} :
-\code{options(apinsee.url = "<URL>")}.
+\code{options(apinsee.url = "<URL>")}. Les programmes seront ainsi facilement
+portables d'un environnement à un autre.
 }
+
 \examples{
 insee_endpoint()
 }
