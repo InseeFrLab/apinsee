@@ -29,21 +29,20 @@ NULL
 #' `apinsee.url`. Les programmes seront ainsi facilement portables d'un
 #' environnement à un autre.
 #'
-#' @param new_auth logical, defaults to `FALSE`. Set to `TRUE` if you
-#'   want to wipe the slate clean and re-authenticate with the same
-#'   application. This disables the `.httr-oauth` file in current
-#'   working directory.
-#' @param appname application name.
-#' @param key,secret consumer key and secret of the application.
-#' @param validity_period integer, length of the validity period in seconds.
-#' @param cache logical indicating if `apinsee` should cache
-#'   credentials in the default cache file `.httr-oauth`.
-#' @param verbose logical; do you want informative messages?
+#' @param new_auth booléen, valeur par défaut : `FALSE`. Passer `TRUE` si vous
+#'   souhaitez révoquer le jeton d'accès et vous authentifier à nouveau.
+#' @param appname nom de l'application.
+#' @param key,secret clef et secret du consommateur.
+#' @param validity_period entier, durée de validité du jeton d'accès en secondes.
+#' @param cache booléen indiquant si `apinsee` doit sauvegarder les jetons
+#'   d'accès dans un fichier cache, par défaut `.httr-oauth`.
+#' @param verbose booléen; souhaitez-vous des messages d'information ?
 #' @inheritParams insee_endpoint
 #' @encoding UTF-8
 #'
-#' @return Un objet représentant un token.
-#' @seealso [insee_deauth], [TokenInsee]
+#' @return Un objet représentant un token pouvant être passé en valeur du
+#'     paramètre `token` de la fonction [httr::config()][httr::config].
+#' @seealso [insee_deauth], [TokenInsee], [httr::config].
 #' @export
 #' @examples
 #' # Modify the following option to access to a different url

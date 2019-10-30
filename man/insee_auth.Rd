@@ -12,27 +12,26 @@ insee_auth(new_auth = FALSE, appname = "DefaultApplication",
   insee_url = getOption("apinsee.url"))
 }
 \arguments{
-\item{new_auth}{logical, defaults to \code{FALSE}. Set to \code{TRUE} if you
-want to wipe the slate clean and re-authenticate with the same
-application. This disables the \code{.httr-oauth} file in current
-working directory.}
+\item{new_auth}{booléen, valeur par défaut : \code{FALSE}. Passer \code{TRUE} si vous
+souhaitez révoquer le jeton d'accès et vous authentifier à nouveau.}
 
-\item{appname}{application name.}
+\item{appname}{nom de l'application.}
 
-\item{key, secret}{consumer key and secret of the application.}
+\item{key, secret}{clef et secret du consommateur.}
 
-\item{validity_period}{integer, length of the validity period in seconds.}
+\item{validity_period}{entier, durée de validité du jeton d'accès en secondes.}
 
-\item{cache}{logical indicating if \code{apinsee} should cache
-credentials in the default cache file \code{.httr-oauth}.}
+\item{cache}{booléen indiquant si \code{apinsee} doit sauvegarder les jetons
+d'accès dans un fichier cache, par défaut \code{.httr-oauth}.}
 
-\item{verbose}{logical; do you want informative messages?}
+\item{verbose}{booléen; souhaitez-vous des messages d'information ?}
 
 \item{insee_url}{Adresse du site fournissant les API. Ce paramètre n'est
 utile que pour un usage interne à l'Insee, voir \link{insee_endpoint}.}
 }
 \value{
-Un objet représentant un token.
+Un objet représentant un token pouvant être passé en valeur du
+paramètre \code{token} de la fonction \link[httr:config]{httr::config()}.
 }
 \description{
 Cette fonction permet de s'authentifier via une application créée sur
@@ -78,5 +77,5 @@ if (all(nzchar(Sys.getenv(c("INSEE_APP_KEY", "INSEE_APP_SECRET"))))) {
 }
 }
 \seealso{
-\link{insee_deauth}, \link{TokenInsee}
+\link{insee_deauth}, \link{TokenInsee}, \link[httr:config]{httr::config}.
 }
