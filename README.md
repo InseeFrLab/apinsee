@@ -17,15 +17,23 @@ status](https://www.r-pkg.org/badges/version/apinsee)](https://cran.r-project.or
 
 **apinsee** est un package pour le langage R destiné à faciliter
 l’authentification aux API de l’Insee accessibles à l’adresse
-[api.insee.fr](https://api.insee.fr/). **apinsee** suit notamment les
-recommandations d’utilisation des API de l’Insee, notamment
-l’utilisation de jetons d’accès ayant une durée de validité maximale
-de 24 heures.
+[api.insee.fr](https://api.insee.fr/).
 
 ## Avertissement
 
 **Ce package est en cours de développement. Ses fonctionnalités vont
 évoluer.**
+
+## Motivation
+
+Comme toutes les API modernes, l’utilisation des API de l’Insee requiert
+d’utiliser une procédure d’authentification et de récupérer un jeton
+d’accès. Le site [api.insee.fr](https://api.insee.fr/) recommande
+d’utiliser un nouveau jeton d’accès toutes les 24 heures.
+
+L’objectif du package **apinsee** est de faciliter la gestion et
+l’utilisation de ces jetons d’accès conformément à ces
+recommandations.
 
 ## Installation
 
@@ -111,7 +119,8 @@ requete_siren_unitaire <- function(
 ```
 
 Dès lors, votre utilisateur (s’il utilise une application ayant souscrit
-à l’API Sirene) aura à simplement exécuter la fonction
+à l’API Sirene et qu’il a correctement renseigné les variables
+d’environnement) aura à simplement exécuter la fonction
 `requete_sirene_unitaire()` de votre package :
 
 ``` r
@@ -246,18 +255,6 @@ requete_siren_unitaire(siren = "005520135", date = Sys.Date())
 #> 
 #> $periodesUniteLegale[[1]]$changementCaractereEmployeurUniteLegale
 #> [1] FALSE
-```
-
-Dans le cas où votre utilisateur ne souhaiterait pas renseigner les
-variables d’environnement, il devra préalablement s’authentifier en
-exécutant (**attention, cette pratique n’est pas à recommander car la
-paire clef/secret ne devrait jamais apparaître dans un programme**) :
-
-``` r
-apinsee::insee_auth(
-  key = "xxxxxxxxxxxxxxxxxxxx", # clef du consommateur
-  secret = "yyyyyyyyyyyyyyyyyy" # secret du consommateur
-)
 ```
 
 ## Utilisation interne à l’Insee
