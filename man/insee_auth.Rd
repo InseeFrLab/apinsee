@@ -58,10 +58,10 @@ facilement grâce la fonction \link[usethis:edit]{usethis::edit_r_environ()}.
 Dans le cas d'utilisation standard, la valeur de l'option \code{apinsee.url} est
 \code{"https://api.insee.fr/"}. Il n'est pas utile de la modifier sauf pour les
 agents de l'Insee qui souhaiteraient utiliser les plateformes de test, de
-recette ou de pré-production. Dans ce cas, il est préférable de déclarer
+recette ou de pré-production. Dans ce cas, afin de rendre les programmes
+portables d'un environnement à un autre.il est préférable de déclarer
 l'adresse en modifiant l'option \code{apinsee.url} :
-\code{options(apinsee.url = "<URL>")}. Les programmes seront ainsi facilement
-portables d'un environnement à un autre.
+\code{options(apinsee.url = "<URL>")}.
 }
 
 \examples{

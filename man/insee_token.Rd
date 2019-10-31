@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{insee_token}
 \alias{insee_token}
-\title{Generate a token for an Insee application}
+\title{Generate a valid token for an Insee application}
 \usage{
 insee_token(app, cache = getOption("httr_oauth_cache"),
   config_init = list(), credentials = NULL, validity_period = 86400,
@@ -34,18 +34,18 @@ interne à l'Insee".}
 Un objet de classe \link{TokenInsee}.
 }
 \description{
-Cette fonction génère un jeton d'accès à une application créée sur le site
-\href{https://api.insee.fr/}{api.insee.fr}.
+Cette fonction génère un jeton d'accès valide à une application créée sur le
+site \href{https://api.insee.fr/}{api.insee.fr}.
 }
 \section{Utilisation interne à l'Insee}{
 
 Dans le cas d'utilisation standard, la valeur de l'option \code{apinsee.url} est
 \code{"https://api.insee.fr/"}. Il n'est pas utile de la modifier sauf pour les
 agents de l'Insee qui souhaiteraient utiliser les plateformes de test, de
-recette ou de pré-production. Dans ce cas, il est préférable de déclarer
+recette ou de pré-production. Dans ce cas, afin de rendre les programmes
+portables d'un environnement à un autre.il est préférable de déclarer
 l'adresse en modifiant l'option \code{apinsee.url} :
-\code{options(apinsee.url = "<URL>")}. Les programmes seront ainsi facilement
-portables d'un environnement à un autre.
+\code{options(apinsee.url = "<URL>")}.
 }
 
 \keyword{internal}

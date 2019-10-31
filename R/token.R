@@ -1,10 +1,10 @@
 #' @include endpoint.R
 NULL
 
-#' Generate a token for an Insee application
+#' Generate a valid token for an Insee application
 #'
-#' Cette fonction génère un jeton d'accès à une application créée sur le site
-#' [api.insee.fr](https://api.insee.fr/).
+#' Cette fonction génère un jeton d'accès valide à une application créée sur le
+#' site [api.insee.fr](https://api.insee.fr/).
 #'
 #' @inheritParams httr::oauth2.0_token
 #' @inheritParams insee_endpoint
@@ -60,17 +60,17 @@ insee_token <- function(
 #' Cette classe représente les jetons d'accès aux applications créées sur
 #' [api.insee.fr](https://api.insee.fr) et hérite de la classe
 #' [Token2.0][httr::Token-class] du package [httr][httr::httr-package]. Les
-#' objets de cette classe doivent être créés en appelant le constructeur
-#' `get_insee_token()`.
+#' objets de cette classe doivent être créés en utilisant le constructeur
+#' [insee_token()][insee_token].
 #'
 #' @format Un objet de classe `R6`.
 #' @section Methods:
 #' * `has_expired()` : le jeton d'accès a-t-il expiré ?
-#' * `cache()` : sauvegarde le jeton d'accès dans un cache
-#' * `revoke()` : révoque le jeton d'accès
+#' * `cache()` : sauvegarde le jeton d'accès dans un cache.
+#' * `revoke()` : révoque le jeton d'accès.
 #' * `refresh()` : rafraichit le jeton d'accès (le point d'accès de
 #' rafraichissement OAuth2 n'étant pas disponible, le jeton d'accès
-#' courant est révoqué puis un nouveau jeton d'accès est généré)
+#' courant est révoqué puis un nouveau jeton d'accès est généré).
 #' @inheritSection httr::Token Caching
 #' @docType class
 #' @keywords internal

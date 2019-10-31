@@ -14,7 +14,7 @@ Cette classe représente les jetons d'accès aux applications créées sur
 \href{https://api.insee.fr}{api.insee.fr} et hérite de la classe
 \link[httr:Token-class]{Token2.0} du package \link[httr:httr-package]{httr}. Les
 objets de cette classe doivent être créés en appelant le constructeur
-\code{get_insee_token()}.
+\link[=insee_token]{insee_token()}.
 }
 \section{Methods}{
 
