@@ -35,18 +35,3 @@ insee_endpoint <- function(insee_url = getOption("apinsee.url")) {
     authorize = NULL
   )
 }
-
-insee_scope <- function(insee_url = getOption("apinsee.url")) {
-  modify_insee_url <- function(path) {
-    httr::modify_url(url = insee_url, path = path)
-  }
-
-  paths <- list(
-    c("metadonnees", "nomenclatures", "v1"),
-    c("entreprises", "sirene", "V3"),
-    c("entreprises", "sirene")
-  )
-
-  vapply(paths, modify_insee_url, character(1))
-
-}

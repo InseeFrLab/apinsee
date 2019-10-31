@@ -30,6 +30,7 @@ NULL
 #' @param cache booléen indiquant si `apinsee` doit sauvegarder les jetons
 #'   d'accès dans un fichier cache, par défaut `.httr-oauth`.
 #' @param verbose booléen; souhaitez-vous des messages d'information ?
+#' @inheritParams insee_token
 #' @inheritParams insee_endpoint
 #' @inheritSection insee_endpoint Utilisation interne à l'Insee
 #' @encoding UTF-8
@@ -58,6 +59,7 @@ insee_auth <- function(
   key = Sys.getenv("INSEE_APP_KEY"),
   secret = Sys.getenv("INSEE_APP_SECRET"),
   validity_period = 86400,
+  api = c("Sirene V3", "Nomenclatures v1"),
   cache = FALSE,
   verbose = TRUE,
   insee_url = getOption("apinsee.url")
@@ -76,7 +78,8 @@ insee_auth <- function(
       app = app,
       cache = cache,
       validity_period = validity_period,
-      insee_url = insee_url
+      insee_url = insee_url,
+      api = api
     )
 
     stopifnot(is_legit_token(token, verbose = TRUE))

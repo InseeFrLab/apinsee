@@ -8,8 +8,8 @@
 insee_auth(new_auth = FALSE, appname = "DefaultApplication",
   key = Sys.getenv("INSEE_APP_KEY"),
   secret = Sys.getenv("INSEE_APP_SECRET"), validity_period = 86400,
-  cache = FALSE, verbose = TRUE,
-  insee_url = getOption("apinsee.url"))
+  api = c("Sirene V3", "Nomenclatures v1"), cache = FALSE,
+  verbose = TRUE, insee_url = getOption("apinsee.url"))
 }
 \arguments{
 \item{new_auth}{booléen, valeur par défaut : \code{FALSE}. Passer \code{TRUE} si vous
@@ -20,6 +20,10 @@ souhaitez révoquer le jeton d'accès et vous authentifier à nouveau.}
 \item{key, secret}{clef et secret du consommateur.}
 
 \item{validity_period}{entier, durée de validité du jeton d'accès en secondes.}
+
+\item{api}{Un vecteur de chaînes de caractères dont chaque élément comprend
+le ou les noms des API accessibles par l'application. La correspondance
+partielle est acceptée.}
 
 \item{cache}{booléen indiquant si \code{apinsee} doit sauvegarder les jetons
 d'accès dans un fichier cache, par défaut \code{.httr-oauth}.}

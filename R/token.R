@@ -1,4 +1,4 @@
-#' @include endpoint.R
+#' @include endpoint.R scope.R
 NULL
 
 #' Generate a valid token for an Insee application
@@ -9,7 +9,12 @@ NULL
 #' @inheritParams httr::oauth2.0_token
 #' @inheritParams insee_endpoint
 #' @inheritSection insee_endpoint Utilisation interne à l'Insee
-#' @param validity_period A positive integer; token validity period in seconds.
+#' @param validity_period Un entier; durée de validité du jeton d'accès. Cette
+#'   valeur n'est utilisée que lorsque le dernier jeton d'accès a expiré ou a
+#'   été révoqué.
+#' @param api Un vecteur de chaînes de caractères dont chaque élément comprend
+#'   le ou les noms des API accessibles par l'application. La correspondance
+#'   partielle est acceptée.
 #'
 #' @return Un objet de classe [TokenInsee].
 #' @keywords internal
@@ -18,7 +23,8 @@ NULL
 insee_token <- function(
   app, cache = getOption("httr_oauth_cache"),
   config_init = list(), credentials = NULL,
-  validity_period = 86400, insee_url = getOption("apinsee.url")
+  validity_period = 86400, insee_url = getOption("apinsee.url"),
+  api = c("Sirene V3", "Nomenclatures v1")
 ) {
 
   stopifnot(
@@ -26,7 +32,8 @@ insee_token <- function(
     validity_period > 0
   )
 
-  scope <- insee_scope()
+  api <- match.arg(api, several.ok = TRUE)
+  scope <- insee_scopes(api = api, insee_url = insee_url)
 
   user_params <- list(
     grant_type = "client_credentials",

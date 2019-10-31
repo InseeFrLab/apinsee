@@ -13,18 +13,18 @@ TokenInsee
 Cette classe représente les jetons d'accès aux applications créées sur
 \href{https://api.insee.fr}{api.insee.fr} et hérite de la classe
 \link[httr:Token-class]{Token2.0} du package \link[httr:httr-package]{httr}. Les
-objets de cette classe doivent être créés en appelant le constructeur
+objets de cette classe doivent être créés en utilisant le constructeur
 \link[=insee_token]{insee_token()}.
 }
 \section{Methods}{
 
 \itemize{
 \item \code{has_expired()} : le jeton d'accès a-t-il expiré ?
-\item \code{cache()} : sauvegarde le jeton d'accès dans un cache
-\item \code{revoke()} : révoque le jeton d'accès
+\item \code{cache()} : sauvegarde le jeton d'accès dans un cache.
+\item \code{revoke()} : révoque le jeton d'accès.
 \item \code{refresh()} : rafraichit le jeton d'accès (le point d'accès de
 rafraichissement OAuth2 n'étant pas disponible, le jeton d'accès
-courant est révoqué puis un nouveau jeton d'accès est généré)
+courant est révoqué puis un nouveau jeton d'accès est généré).
 }
 }
 

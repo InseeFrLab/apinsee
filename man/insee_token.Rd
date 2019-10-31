@@ -7,7 +7,8 @@
 \usage{
 insee_token(app, cache = getOption("httr_oauth_cache"),
   config_init = list(), credentials = NULL, validity_period = 86400,
-  insee_url = getOption("apinsee.url"))
+  insee_url = getOption("apinsee.url"), api = c("Sirene V3",
+  "Nomenclatures v1"))
 }
 \arguments{
 \item{app}{An OAuth consumer application, created by
@@ -24,11 +25,17 @@ A string means use the specified path as the cache file.}
 \item{credentials}{Advanced use only: allows you to completely customise
 token generation.}
 
-\item{validity_period}{A positive integer; token validity period in seconds.}
+\item{validity_period}{Un entier; durée de validité du jeton d'accès. Cette
+valeur n'est utilisée que lorsque le dernier jeton d'accès a expiré ou a
+été révoqué.}
 
 \item{insee_url}{Adresse du site fournissant les API. Ce paramètre n'est
 utile que pour un usage interne à l'Insee, voir la section "Utilisation
 interne à l'Insee".}
+
+\item{api}{Un vecteur de chaînes de caractères dont chaque élément comprend
+le ou les noms des API accessibles par l'application. La correspondance
+partielle est acceptée.}
 }
 \value{
 Un objet de classe \link{TokenInsee}.
