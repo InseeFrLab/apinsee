@@ -236,7 +236,8 @@ requete_siren_unitaire(siren = "005520135", date = Sys.Date())
 
 Dans le cas où votre utilisateur ne souhaiterait pas renseigner les
 variables d’environnement, il devra préalablement s’authentifier en
-exécutant :
+exécutant (**attention, cette pratique n’est pas à recommander car la
+paire clef/secret ne devrait jamais apparaître dans un programme**) :
 
 ``` r
 apinsee::insee_auth(
