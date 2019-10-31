@@ -17,7 +17,10 @@ status](https://www.r-pkg.org/badges/version/apinsee)](https://cran.r-project.or
 
 **apinsee** est un package pour le langage R destiné à faciliter
 l’authentification aux API de l’Insee accessibles à l’adresse
-[api.insee.fr](https://api.insee.fr/).
+[api.insee.fr](https://api.insee.fr/). **apinsee** suit notamment les
+recommandations d’utilisation des API de l’Insee, notamment
+l’utilisation de jetons d’accès ayant une durée de validité maximale
+de 24 heures.
 
 ## Avertissement
 
@@ -37,8 +40,8 @@ remotes::install_github("rlesur/apinsee")
 
 ### Créer une application
 
-Créez une application ayant accès à l’API Sirene sur le site
-[api.insee.fr](https://api.insee.fr/) : voir
+Créez une application sur le site [api.insee.fr](https://api.insee.fr/)
+: voir
 [l’aide](https://api.insee.fr/catalogue/site/themes/wso2/subthemes/insee/pages/help.jag).
 
 Sauvegardez la clef du consommateur dans la variable d’environnement
@@ -59,7 +62,7 @@ INSEE_APP_SECRET=yyyyyyyyyyyyyyyyyy # secret du consommateur
 
 Sauvegardez ce fichier et **redémarrez votre session R**.
 
-### Créer un jeton d’accès
+### Créer et utiliser un jeton d’accès
 
 Le package **apinsee** ne comprend qu’une fonction utile :
 `insee_auth()`. Cette fonction permet de récupérer un jeton d’accès à
@@ -74,7 +77,18 @@ token <- apinsee::insee_auth()
 Les jetons d’accès ayant une durée de validité limitée, cette fonction
 permet de récupérer automatiquement un jeton valide.
 
-### Intégrer **apinsee**
+Ce token peut ensuite être utilisé comme valeur du paramètre `token` de
+la fonction `httr::config()` :
+
+``` r
+library(httr)
+set_config(config(token = token))
+```
+
+Dès lors, vous pouvez accéder aux API de l’Insee auxquelles votre
+application a souscrites.
+
+## Utiliser **apinsee** dans votre package
 
 Imaginons que vous souhaitiez développer un package qui accède à l’API
 Sirene. Vous pouvez créer la fonction suivante :
@@ -96,8 +110,8 @@ requete_siren_unitaire <- function(
 }
 ```
 
-Dès lors, votre utilisateur (s’il renseigne les variables
-d’environnement précédentes) aura à simplement exécuter la fonction
+Dès lors, votre utilisateur (s’il utilise une application ayant souscrit
+à l’API Sirene) aura à simplement exécuter la fonction
 `requete_sirene_unitaire()` de votre package :
 
 ``` r
