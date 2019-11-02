@@ -261,11 +261,18 @@ requete_siren_unitaire(siren = "005520135", date = Sys.Date())
 
 **apinsee** peut également être utilisé au sein de l’Insee pour les
 agents qui souhaiteraient accéder aux plateformes de test, recette ou
-pré-production. Le plus simple est de modifier l’option `apinsee.url`
-de la façon suivante :
+pré-production. Le plus simple est de modifier l’option `apinsee.url`.
+La valeur par défaut de l’option `apinsee.url` est :
+
+``` r
+getOption("apinsee.url")
+#> [1] "https://api.insee.fr/"
+```
+
+Il vous suffit donc de rajouter avant d’exécuter vos scripts :
 
 ``` r
 options(apinsee.url = "adresse.de.la.plateforme")
 ```
 
-Il n’y a rien d’autre à modifier dans vos programmes.
+Il s’agit de la seule modification à apporter à vos programmes.
