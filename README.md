@@ -275,4 +275,11 @@ Il vous suffit donc de rajouter avant d’exécuter vos scripts :
 options(apinsee.url = "adresse.de.la.plateforme")
 ```
 
-Il s’agit de la seule modification à apporter à vos programmes.
+Enfin, pour accéder à l’environnement de recette, il ne faut pas
+utiliser de proxy, vous devez donc également soit modifier les variables
+d’environnement `http_proxy` et `https_proxy` dans le fichier
+`.Renviron` (recommandé), soit rajouter :
+
+``` r
+httr::set_config(httr::use_proxy(""))
+```
