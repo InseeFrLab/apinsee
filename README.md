@@ -264,6 +264,12 @@ requete_siren_unitaire(siren = "005520135", date = Sys.Date())
 #> [1] FALSE
 ```
 
+### Conseil aux développeurs de packages utilisant apinsee
+
+Si vous testez du code utilisant **apinsee**, vous devez mettre le
+package **httpuv** dans la rubrique `Suggests` du fichier `DESCRIPTION`
+de votre package.
+
 ## Utilisation interne à l’Insee
 
 **apinsee** peut également être utilisé au sein de l’Insee pour les

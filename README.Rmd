@@ -113,6 +113,10 @@ Dès lors, votre utilisateur (s'il utilise une application ayant souscrit à l'A
 requete_siren_unitaire(siren = "005520135", date = Sys.Date())
 ```
 
+### Conseil aux développeurs de packages utilisant apinsee
+
+Si vous testez du code utilisant **apinsee**, vous devez mettre le package **httpuv** dans la rubrique `Suggests` du fichier `DESCRIPTION` de votre package.
+
 ## Utilisation interne à l'Insee
 
 **apinsee** peut également être utilisé au sein de l'Insee pour les agents qui souhaiteraient accéder aux plateformes de test, recette ou pré-production. Le plus simple est de modifier l'option `apinsee.url`. La valeur par défaut de l'option `apinsee.url` est :
