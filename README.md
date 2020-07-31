@@ -113,6 +113,13 @@ requete_siren_unitaire <- function(
   )
   
   res <- httr::GET(url, httr::config(token = token))
+  
+  # check for rate limit
+  if (identical(httr::status_code(res), 429L)) {
+    Sys.sleep(60)
+    res <- httr::GET(url, httr::config(token = token))
+  }
+  
   httr::stop_for_status(res)
   httr::content(res)[["uniteLegale"]]
 }
