@@ -6,3 +6,4 @@
 ^\.travis\.yml$
 ^codecov\.yml$
 ^tests/testthat/\.httr-oauth$
+^\.github$
