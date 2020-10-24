@@ -108,9 +108,13 @@ requete_siren_unitaire <- function(siren, date = NULL,
 
 Dès lors, votre utilisateur (s'il utilise une application ayant souscrit à l'API Sirene et qu'il a correctement renseigné les variables d'environnement) aura à simplement exécuter la fonction `requete_sirene_unitaire()` de votre package : 
 
-```{r}
+```{r demo, eval=FALSE}
 requete_siren_unitaire(siren = "005520135", date = Sys.Date())
 ```
+<details>
+```{r demo, echo=FALSE}
+```
+</details>
 
 ### Conseil aux développeurs de packages utilisant apinsee
 

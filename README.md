@@ -131,137 +131,142 @@ d’environnement) aura à simplement exécuter la fonction
 
 ``` r
 requete_siren_unitaire(siren = "005520135", date = Sys.Date())
-#> $siren
-#> [1] "005520135"
-#> 
-#> $statutDiffusionUniteLegale
-#> [1] "O"
-#> 
-#> $dateCreationUniteLegale
-#> [1] "1955-01-01"
-#> 
-#> $sigleUniteLegale
-#> NULL
-#> 
-#> $sexeUniteLegale
-#> NULL
-#> 
-#> $prenom1UniteLegale
-#> NULL
-#> 
-#> $prenom2UniteLegale
-#> NULL
-#> 
-#> $prenom3UniteLegale
-#> NULL
-#> 
-#> $prenom4UniteLegale
-#> NULL
-#> 
-#> $prenomUsuelUniteLegale
-#> NULL
-#> 
-#> $pseudonymeUniteLegale
-#> NULL
-#> 
-#> $identifiantAssociationUniteLegale
-#> NULL
-#> 
-#> $trancheEffectifsUniteLegale
-#> [1] "NN"
-#> 
-#> $anneeEffectifsUniteLegale
-#> NULL
-#> 
-#> $dateDernierTraitementUniteLegale
-#> [1] "2009-09-26T08:36:53"
-#> 
-#> $nombrePeriodesUniteLegale
-#> [1] 8
-#> 
-#> $categorieEntreprise
-#> NULL
-#> 
-#> $anneeCategorieEntreprise
-#> NULL
-#> 
-#> $periodesUniteLegale
-#> $periodesUniteLegale[[1]]
-#> $periodesUniteLegale[[1]]$dateFin
-#> NULL
-#> 
-#> $periodesUniteLegale[[1]]$dateDebut
-#> [1] "2007-11-19"
-#> 
-#> $periodesUniteLegale[[1]]$etatAdministratifUniteLegale
-#> [1] "C"
-#> 
-#> $periodesUniteLegale[[1]]$changementEtatAdministratifUniteLegale
-#> [1] TRUE
-#> 
-#> $periodesUniteLegale[[1]]$nomUniteLegale
-#> NULL
-#> 
-#> $periodesUniteLegale[[1]]$changementNomUniteLegale
-#> [1] FALSE
-#> 
-#> $periodesUniteLegale[[1]]$nomUsageUniteLegale
-#> NULL
-#> 
-#> $periodesUniteLegale[[1]]$changementNomUsageUniteLegale
-#> [1] FALSE
-#> 
-#> $periodesUniteLegale[[1]]$denominationUniteLegale
-#> [1] "CHANVI GESTION"
-#> 
-#> $periodesUniteLegale[[1]]$changementDenominationUniteLegale
-#> [1] FALSE
-#> 
-#> $periodesUniteLegale[[1]]$denominationUsuelle1UniteLegale
-#> NULL
-#> 
-#> $periodesUniteLegale[[1]]$denominationUsuelle2UniteLegale
-#> NULL
-#> 
-#> $periodesUniteLegale[[1]]$denominationUsuelle3UniteLegale
-#> NULL
-#> 
-#> $periodesUniteLegale[[1]]$changementDenominationUsuelleUniteLegale
-#> [1] FALSE
-#> 
-#> $periodesUniteLegale[[1]]$categorieJuridiqueUniteLegale
-#> [1] "5710"
-#> 
-#> $periodesUniteLegale[[1]]$changementCategorieJuridiqueUniteLegale
-#> [1] FALSE
-#> 
-#> $periodesUniteLegale[[1]]$activitePrincipaleUniteLegale
-#> [1] "74.1J"
-#> 
-#> $periodesUniteLegale[[1]]$nomenclatureActivitePrincipaleUniteLegale
-#> [1] "NAFRev1"
-#> 
-#> $periodesUniteLegale[[1]]$changementActivitePrincipaleUniteLegale
-#> [1] FALSE
-#> 
-#> $periodesUniteLegale[[1]]$nicSiegeUniteLegale
-#> [1] "00038"
-#> 
-#> $periodesUniteLegale[[1]]$changementNicSiegeUniteLegale
-#> [1] FALSE
-#> 
-#> $periodesUniteLegale[[1]]$economieSocialeSolidaireUniteLegale
-#> NULL
-#> 
-#> $periodesUniteLegale[[1]]$changementEconomieSocialeSolidaireUniteLegale
-#> [1] FALSE
-#> 
-#> $periodesUniteLegale[[1]]$caractereEmployeurUniteLegale
-#> [1] "O"
-#> 
-#> $periodesUniteLegale[[1]]$changementCaractereEmployeurUniteLegale
-#> [1] FALSE
 ```
+
+<details>
+
+    #> $siren
+    #> [1] "005520135"
+    #> 
+    #> $statutDiffusionUniteLegale
+    #> [1] "O"
+    #> 
+    #> $dateCreationUniteLegale
+    #> [1] "1955-01-01"
+    #> 
+    #> $sigleUniteLegale
+    #> NULL
+    #> 
+    #> $sexeUniteLegale
+    #> NULL
+    #> 
+    #> $prenom1UniteLegale
+    #> NULL
+    #> 
+    #> $prenom2UniteLegale
+    #> NULL
+    #> 
+    #> $prenom3UniteLegale
+    #> NULL
+    #> 
+    #> $prenom4UniteLegale
+    #> NULL
+    #> 
+    #> $prenomUsuelUniteLegale
+    #> NULL
+    #> 
+    #> $pseudonymeUniteLegale
+    #> NULL
+    #> 
+    #> $identifiantAssociationUniteLegale
+    #> NULL
+    #> 
+    #> $trancheEffectifsUniteLegale
+    #> [1] "NN"
+    #> 
+    #> $anneeEffectifsUniteLegale
+    #> NULL
+    #> 
+    #> $dateDernierTraitementUniteLegale
+    #> [1] "2009-09-26T08:36:53"
+    #> 
+    #> $nombrePeriodesUniteLegale
+    #> [1] 8
+    #> 
+    #> $categorieEntreprise
+    #> NULL
+    #> 
+    #> $anneeCategorieEntreprise
+    #> NULL
+    #> 
+    #> $periodesUniteLegale
+    #> $periodesUniteLegale[[1]]
+    #> $periodesUniteLegale[[1]]$dateFin
+    #> NULL
+    #> 
+    #> $periodesUniteLegale[[1]]$dateDebut
+    #> [1] "2007-11-19"
+    #> 
+    #> $periodesUniteLegale[[1]]$etatAdministratifUniteLegale
+    #> [1] "C"
+    #> 
+    #> $periodesUniteLegale[[1]]$changementEtatAdministratifUniteLegale
+    #> [1] TRUE
+    #> 
+    #> $periodesUniteLegale[[1]]$nomUniteLegale
+    #> NULL
+    #> 
+    #> $periodesUniteLegale[[1]]$changementNomUniteLegale
+    #> [1] FALSE
+    #> 
+    #> $periodesUniteLegale[[1]]$nomUsageUniteLegale
+    #> NULL
+    #> 
+    #> $periodesUniteLegale[[1]]$changementNomUsageUniteLegale
+    #> [1] FALSE
+    #> 
+    #> $periodesUniteLegale[[1]]$denominationUniteLegale
+    #> [1] "CHANVI GESTION"
+    #> 
+    #> $periodesUniteLegale[[1]]$changementDenominationUniteLegale
+    #> [1] FALSE
+    #> 
+    #> $periodesUniteLegale[[1]]$denominationUsuelle1UniteLegale
+    #> NULL
+    #> 
+    #> $periodesUniteLegale[[1]]$denominationUsuelle2UniteLegale
+    #> NULL
+    #> 
+    #> $periodesUniteLegale[[1]]$denominationUsuelle3UniteLegale
+    #> NULL
+    #> 
+    #> $periodesUniteLegale[[1]]$changementDenominationUsuelleUniteLegale
+    #> [1] FALSE
+    #> 
+    #> $periodesUniteLegale[[1]]$categorieJuridiqueUniteLegale
+    #> [1] "5710"
+    #> 
+    #> $periodesUniteLegale[[1]]$changementCategorieJuridiqueUniteLegale
+    #> [1] FALSE
+    #> 
+    #> $periodesUniteLegale[[1]]$activitePrincipaleUniteLegale
+    #> [1] "74.1J"
+    #> 
+    #> $periodesUniteLegale[[1]]$nomenclatureActivitePrincipaleUniteLegale
+    #> [1] "NAFRev1"
+    #> 
+    #> $periodesUniteLegale[[1]]$changementActivitePrincipaleUniteLegale
+    #> [1] FALSE
+    #> 
+    #> $periodesUniteLegale[[1]]$nicSiegeUniteLegale
+    #> [1] "00038"
+    #> 
+    #> $periodesUniteLegale[[1]]$changementNicSiegeUniteLegale
+    #> [1] FALSE
+    #> 
+    #> $periodesUniteLegale[[1]]$economieSocialeSolidaireUniteLegale
+    #> NULL
+    #> 
+    #> $periodesUniteLegale[[1]]$changementEconomieSocialeSolidaireUniteLegale
+    #> [1] FALSE
+    #> 
+    #> $periodesUniteLegale[[1]]$caractereEmployeurUniteLegale
+    #> [1] "O"
+    #> 
+    #> $periodesUniteLegale[[1]]$changementCaractereEmployeurUniteLegale
+    #> [1] FALSE
+
+</details>
 
 ### Conseil aux développeurs de packages utilisant apinsee
 
