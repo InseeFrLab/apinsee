@@ -13,6 +13,7 @@ status](https://travis-ci.org/InseeFrLab/apinsee.svg?branch=master)](https://tra
 coverage](https://codecov.io/gh/InseeFrLab/apinsee/branch/master/graph/badge.svg)](https://codecov.io/gh/InseeFrLab/apinsee?branch=master)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/apinsee)](https://cran.r-project.org/package=apinsee)
+[![License:MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <!-- badges: end -->
 
 **apinsee** est un package pour le langage R destiné à faciliter
