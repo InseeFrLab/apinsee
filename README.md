@@ -8,9 +8,9 @@
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![Travis build
-status](https://travis-ci.org/RLesur/apinsee.svg?branch=master)](https://travis-ci.org/RLesur/apinsee)
+status](https://travis-ci.org/InseeFrLab/apinsee.svg?branch=master)](https://travis-ci.org/InseeFrLab/apinsee)
 [![Codecov test
-coverage](https://codecov.io/gh/RLesur/apinsee/branch/master/graph/badge.svg)](https://codecov.io/gh/RLesur/apinsee?branch=master)
+coverage](https://codecov.io/gh/InseeFrLab/apinsee/branch/master/graph/badge.svg)](https://codecov.io/gh/InseeFrLab/apinsee?branch=master)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/apinsee)](https://cran.r-project.org/package=apinsee)
 <!-- badges: end -->
@@ -21,7 +21,7 @@ l’authentification aux API de l’Insee accessibles à l’adresse
 
 ## Avertissement
 
-**Ce package est en cours de développement. Ses fonctionnalités vont
+**Ce package est en cours de développement. Ses fonctionnalités peuvent
 évoluer.**
 
 ## Motivation
@@ -296,3 +296,7 @@ d’environnement `http_proxy` et `https_proxy` dans le fichier
 ``` r
 httr::set_config(httr::use_proxy(""))
 ```
+
+## Licence
+
+Le code source de ce projet est publié sous licence MIT.

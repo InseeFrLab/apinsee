@@ -16,8 +16,8 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![Travis build status](https://travis-ci.org/RLesur/apinsee.svg?branch=master)](https://travis-ci.org/RLesur/apinsee)
-[![Codecov test coverage](https://codecov.io/gh/RLesur/apinsee/branch/master/graph/badge.svg)](https://codecov.io/gh/RLesur/apinsee?branch=master)
+[![Travis build status](https://travis-ci.org/InseeFrLab/apinsee.svg?branch=master)](https://travis-ci.org/InseeFrLab/apinsee)
+[![Codecov test coverage](https://codecov.io/gh/InseeFrLab/apinsee/branch/master/graph/badge.svg)](https://codecov.io/gh/InseeFrLab/apinsee?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/apinsee)](https://cran.r-project.org/package=apinsee)
 <!-- badges: end -->
 
@@ -25,7 +25,7 @@ knitr::opts_chunk$set(
 
 ## Avertissement
 
-**Ce package est en cours de développement. Ses fonctionnalités vont évoluer.**
+**Ce package est en cours de développement. Ses fonctionnalités peuvent évoluer.**
 
 ## Motivation
 
@@ -136,3 +136,7 @@ Enfin, pour accéder à l'environnement de recette, il ne faut pas utiliser de p
 ```{r, eval=FALSE}
 httr::set_config(httr::use_proxy(""))
 ```
+
+## Licence
+
+Le code source de ce projet est publié sous licence MIT.

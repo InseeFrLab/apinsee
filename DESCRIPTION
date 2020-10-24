@@ -1,9 +1,9 @@
 Package: apinsee
 Title: Manage Access to Insee APIs
-Version: 0.0.0.9050
+Version: 0.0.0.9060
 Authors@R: c(
-    person("Romain", "Lesur", role = c("aut", "cre"), email = "romain.lesur@gmail.com", comment = c(ORCID = "0000-0002-0721-5595")),
-    person()
+    person("Romain", "Lesur", role = c("aut", "cre"), email = "romain.lesur@insee.fr", comment = c(ORCID = "0000-0002-0721-5595")),
+    person(family = "Institut National de la Statistique et des Études Économiques (INSEE)", role = "cph")
     )
 Description: Ease access to Insee APIs.
 License: MIT + file LICENSE
