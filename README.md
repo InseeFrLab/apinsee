@@ -103,10 +103,8 @@ Imaginons que vous souhaitiez développer un package qui accède à l’API
 Sirene. Vous pouvez créer la fonction suivante :
 
 ``` r
-requete_siren_unitaire <- function(
-  siren, date = NULL, token = apinsee::insee_auth()
-) {
-  
+requete_siren_unitaire <- function(siren, date = NULL,
+                                   token = apinsee::insee_auth()) {
   url <- httr::modify_url(
     "https://api.insee.fr/", 
     path = c("entreprises", "sirene", "V3", "siren", siren), 
