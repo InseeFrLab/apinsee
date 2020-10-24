@@ -18,7 +18,6 @@ Imports:
     R6,
     rlang (>= 0.3.0)
 Suggests: 
-    covr,
     curl,
     httpuv,
     testthat (>= 2.1.0),
