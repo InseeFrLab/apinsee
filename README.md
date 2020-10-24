@@ -41,7 +41,7 @@ Vous pouvez installer la version de développement depuis
 [GitHub](https://github.com/) en exécutant :
 
 ``` r
-remotes::install_github("rlesur/apinsee")
+remotes::install_github("inseefrlab/apinsee")
 ```
 
 ## Exemple
