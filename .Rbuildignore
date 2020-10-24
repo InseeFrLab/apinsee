@@ -7,3 +7,6 @@
 ^codecov\.yml$
 ^tests/testthat/\.httr-oauth$
 ^\.github$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
