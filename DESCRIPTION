@@ -13,7 +13,7 @@ Imports:
     httr (>= 1.4.0),
     R6,
     rlang (>= 0.3.0)
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
 Collate: 
     'endpoint.R'
     'utils.R'

@@ -5,14 +5,19 @@
 \alias{insee_token}
 \title{Generate a valid token for an Insee application}
 \usage{
-insee_token(app, cache = getOption("httr_oauth_cache"),
-  config_init = list(), credentials = NULL, validity_period = 86400,
-  insee_url = getOption("apinsee.url"), api = c("Sirene V3",
-  "Nomenclatures v1"))
+insee_token(
+  app,
+  cache = getOption("httr_oauth_cache"),
+  config_init = list(),
+  credentials = NULL,
+  validity_period = 86400,
+  insee_url = getOption("apinsee.url"),
+  api = c("Sirene V3", "Nomenclatures v1")
+)
 }
 \arguments{
 \item{app}{An OAuth consumer application, created by
-\code{\link[=oauth_app]{oauth_app()}}}
+\code{\link[httr:oauth_app]{oauth_app()}}}
 
 \item{cache}{A logical value or a string. \code{TRUE} means to cache
 using the default cache file \code{.httr-oauth}, \code{FALSE} means
@@ -20,7 +25,7 @@ don't cache, and \code{NA} means to guess using some sensible heuristics.
 A string means use the specified path as the cache file.}
 
 \item{config_init}{Additional configuration settings sent to
-\code{\link[=POST]{POST()}}, e.g. \code{\link[=user_agent]{user_agent()}}.}
+\code{\link[httr:POST]{POST()}}, e.g. \code{\link[httr:user_agent]{user_agent()}}.}
 
 \item{credentials}{Advanced use only: allows you to completely customise
 token generation.}

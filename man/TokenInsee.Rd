@@ -5,9 +5,8 @@
 \name{TokenInsee}
 \alias{TokenInsee}
 \title{Token objects for Insee applications}
-\format{Un objet de classe \code{R6}.}
-\usage{
-TokenInsee
+\format{
+Un objet de classe \code{R6}.
 }
 \description{
 Cette classe représente les jetons d'accès aux applications créées sur
@@ -51,3 +50,111 @@ the appropriate entries to \code{.gitignore} and \code{.Rbuildignore} if needed.
 }
 
 \keyword{internal}
+\section{Super classes}{
+\code{\link[httr:Token]{httr::Token}} -> \code{\link[httr:Token2.0]{httr::Token2.0}} -> \code{TokenInsee}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-print}{\code{TokenInsee$print()}}
+\item \href{#method-init_credentials}{\code{TokenInsee$init_credentials()}}
+\item \href{#method-has_expired}{\code{TokenInsee$has_expired()}}
+\item \href{#method-load_from_cache}{\code{TokenInsee$load_from_cache()}}
+\item \href{#method-revoke}{\code{TokenInsee$revoke()}}
+\item \href{#method-refresh}{\code{TokenInsee$refresh()}}
+\item \href{#method-can_refresh}{\code{TokenInsee$can_refresh()}}
+\item \href{#method-clone}{\code{TokenInsee$clone()}}
+}
+}
+\if{html}{
+\out{<details open ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="httr" data-topic="Token" data-id="cache">}\href{../../httr/html/Token.html#method-cache}{\code{httr::Token$cache()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="httr" data-topic="Token" data-id="hash">}\href{../../httr/html/Token.html#method-hash}{\code{httr::Token$hash()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="httr" data-topic="Token" data-id="initialize">}\href{../../httr/html/Token.html#method-initialize}{\code{httr::Token$initialize()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="httr" data-topic="Token2.0" data-id="sign">}\href{../../httr/html/Token2.0.html#method-sign}{\code{httr::Token2.0$sign()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="httr" data-topic="Token2.0" data-id="validate">}\href{../../httr/html/Token2.0.html#method-validate}{\code{httr::Token2.0$validate()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-print"></a>}}
+\if{latex}{\out{\hypertarget{method-print}{}}}
+\subsection{Method \code{print()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TokenInsee$print(...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-init_credentials"></a>}}
+\if{latex}{\out{\hypertarget{method-init_credentials}{}}}
+\subsection{Method \code{init_credentials()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TokenInsee$init_credentials()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-has_expired"></a>}}
+\if{latex}{\out{\hypertarget{method-has_expired}{}}}
+\subsection{Method \code{has_expired()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TokenInsee$has_expired()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-load_from_cache"></a>}}
+\if{latex}{\out{\hypertarget{method-load_from_cache}{}}}
+\subsection{Method \code{load_from_cache()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TokenInsee$load_from_cache()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-revoke"></a>}}
+\if{latex}{\out{\hypertarget{method-revoke}{}}}
+\subsection{Method \code{revoke()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TokenInsee$revoke()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-refresh"></a>}}
+\if{latex}{\out{\hypertarget{method-refresh}{}}}
+\subsection{Method \code{refresh()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TokenInsee$refresh()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-can_refresh"></a>}}
+\if{latex}{\out{\hypertarget{method-can_refresh}{}}}
+\subsection{Method \code{can_refresh()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TokenInsee$can_refresh()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TokenInsee$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

@@ -4,8 +4,10 @@
 \alias{insee_scopes}
 \title{Addresses of the Insee APIs}
 \usage{
-insee_scopes(api = c("Sirene V3", "Nomenclatures v1"),
-  insee_url = getOption("apinsee.url"))
+insee_scopes(
+  api = c("Sirene V3", "Nomenclatures v1"),
+  insee_url = getOption("apinsee.url")
+)
 }
 \arguments{
 \item{api}{Un vecteur de chaînes de caractères dont chaque élément comprend

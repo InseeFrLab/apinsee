@@ -5,11 +5,17 @@
 \alias{insee_auth}
 \title{Authenticate to an Insee application}
 \usage{
-insee_auth(new_auth = FALSE, appname = "DefaultApplication",
+insee_auth(
+  new_auth = FALSE,
+  appname = "DefaultApplication",
   key = Sys.getenv("INSEE_APP_KEY"),
-  secret = Sys.getenv("INSEE_APP_SECRET"), validity_period = 86400,
-  api = c("Sirene V3", "Nomenclatures v1"), cache = FALSE,
-  verbose = TRUE, insee_url = getOption("apinsee.url"))
+  secret = Sys.getenv("INSEE_APP_SECRET"),
+  validity_period = 86400,
+  api = c("Sirene V3", "Nomenclatures v1"),
+  cache = FALSE,
+  verbose = TRUE,
+  insee_url = getOption("apinsee.url")
+)
 }
 \arguments{
 \item{new_auth}{booléen, valeur par défaut : \code{FALSE}. Passer \code{TRUE} si vous
