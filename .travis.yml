@@ -2,9 +2,6 @@
 
 language: R
 cache: packages
-r_packages:
-  - covr
-  - pkgdown
 after_success:
   - Rscript -e 'covr::codecov()'
 deploy:

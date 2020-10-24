@@ -17,9 +17,11 @@ Imports:
     httr (>= 1.4.0),
     R6,
     rlang (>= 0.3.0)
-Suggests: 
+Suggests:
+    covr,
     curl,
     httpuv,
+    pkgdown,
     testthat (>= 2.1.0),
     usethis
 Encoding: UTF-8
