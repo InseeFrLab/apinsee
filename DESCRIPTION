@@ -1,6 +1,6 @@
 Package: apinsee
 Title: Manage Access to Insee APIs
-Version: 0.0.0.9060
+Version: 0.0.1.9000
 Authors@R: 
     c(person(given = "Romain",
              family = "Lesur",
