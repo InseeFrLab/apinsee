@@ -21,12 +21,10 @@ NULL
 #' @encoding UTF-8
 #' @export
 insee_token <- function(
-  app, cache = getOption("httr_oauth_cache"),
-  config_init = list(), credentials = NULL,
-  validity_period = 86400, insee_url = getOption("apinsee.url"),
-  api = c("Sirene V3", "Nomenclatures v1")
-) {
-
+                        app, cache = getOption("httr_oauth_cache"),
+                        config_init = list(), credentials = NULL,
+                        validity_period = 86400, insee_url = getOption("apinsee.url"),
+                        api = c("Sirene V3", "Nomenclatures v1")) {
   stopifnot(
     rlang::is_scalar_integerish(validity_period, finite = TRUE),
     validity_period > 0
@@ -84,11 +82,10 @@ insee_token <- function(
 #' @encoding UTF-8
 #' @export
 TokenInsee <- R6::R6Class("TokenInsee", inherit = httr::Token2.0, list(
-
   print = function(...) {
     super$print()
 
-    if(self$has_expired()) {
+    if (self$has_expired()) {
       cat("expired token\n")
     } else {
       cat("expiration date:", format(self$credentials$expiration_time), "\n")

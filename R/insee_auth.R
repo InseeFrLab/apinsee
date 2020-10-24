@@ -54,17 +54,15 @@ NULL
 #'   set_config(config(token = token))
 #' }
 insee_auth <- function(
-  new_auth = FALSE,
-  appname = "DefaultApplication",
-  key = Sys.getenv("INSEE_APP_KEY"),
-  secret = Sys.getenv("INSEE_APP_SECRET"),
-  validity_period = 86400,
-  api = c("Sirene V3", "Nomenclatures v1"),
-  cache = FALSE,
-  verbose = TRUE,
-  insee_url = getOption("apinsee.url")
-) {
-
+                       new_auth = FALSE,
+                       appname = "DefaultApplication",
+                       key = Sys.getenv("INSEE_APP_KEY"),
+                       secret = Sys.getenv("INSEE_APP_SECRET"),
+                       validity_period = 86400,
+                       api = c("Sirene V3", "Nomenclatures v1"),
+                       cache = FALSE,
+                       verbose = TRUE,
+                       insee_url = getOption("apinsee.url")) {
   if (new_auth) {
     insee_deauth(verbose = verbose)
   }
@@ -88,7 +86,6 @@ insee_auth <- function(
   }
 
   invisible(token)
-
 }
 
 #' Suspend authentication
@@ -100,7 +97,6 @@ insee_auth <- function(
 #' @return NULL, invisibly.
 #' @export
 insee_deauth <- function(verbose = TRUE) {
-
   tokens <- as.list(.memory_cache)
   lapply(tokens, function(token) {
     if (verbose) {
@@ -108,7 +104,7 @@ insee_deauth <- function(verbose = TRUE) {
     }
     token$revoke()
     if (verbose) {
-      message("Removing token for application ", token$app$key ," stashed internally in 'apinsee'.")
+      message("Removing token for application ", token$app$key, " stashed internally in 'apinsee'.")
     }
     rlang::env_unbind(.memory_cache, token$app$key)
   })
@@ -118,11 +114,9 @@ insee_deauth <- function(verbose = TRUE) {
   }
 
   invisible(NULL)
-
 }
 
 is_legit_token <- function(x, verbose = FALSE) {
-
   if (!inherits(x, "TokenInsee")) {
     if (verbose) message("Not a TokenInsee object.")
     return(FALSE)
@@ -141,6 +135,4 @@ is_legit_token <- function(x, verbose = FALSE) {
   }
 
   TRUE
-
 }
-

@@ -18,9 +18,8 @@
 #' insee_scopes("Nomenclatures")
 #' insee_scopes(c("Sirene", "Nomenclatures"))
 insee_scopes <- function(
-  api = c("Sirene V3", "Nomenclatures v1"),
-  insee_url = getOption("apinsee.url")
-) {
+                         api = c("Sirene V3", "Nomenclatures v1"),
+                         insee_url = getOption("apinsee.url")) {
   api <- match.arg(api, several.ok = TRUE)
 
   paths <- list(
