@@ -12,7 +12,7 @@ insee_token(
   credentials = NULL,
   validity_period = 86400,
   insee_url = getOption("apinsee.url"),
-  api = c("Sirene V3", "Nomenclatures v1")
+  api = c("Sirene - V3", "Nomenclatures - v1", "DonneesLocales - V0.1", "BDM - V1")
 )
 }
 \arguments{

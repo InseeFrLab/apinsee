@@ -16,19 +16,26 @@
 #' insee_scopes()
 #' insee_scopes("Sirene")
 #' insee_scopes("Nomenclatures")
-#' insee_scopes(c("Sirene", "Nomenclatures"))
-insee_scopes <- function(
-                         api = c("Sirene V3", "Nomenclatures v1"),
+#' insee_scopes(c("Sirene", "Nomenclatures", "DonneesLocales", "BDM"))
+insee_scopes <- function(api = c("Sirene - V3", "Nomenclatures - v1", "DonneesLocales - V0.1", "BDM - V1"),
                          insee_url = getOption("apinsee.url")) {
   api <- match.arg(api, several.ok = TRUE)
 
   paths <- list(
-    `Nomenclatures v1` = list(
-      c("metadonnees", "nomenclatures", "v1")
+    `Nomenclatures - v1` = list(
+      c("metadonnees", "nomenclatures", "v1"),
+      c("metadonnees", "nomenclatures")
     ),
-    `Sirene V3` = list(
+    `Sirene - V3` = list(
       c("entreprises", "sirene", "V3"),
       c("entreprises", "sirene")
+    ),
+    `DonneesLocales - V0.1` = list(
+      c("donnees-locales", "V0.1")
+    ),
+    `BDM - V1` = list(
+      c("series", "BDM", "V1"),
+      c("series", "BDM")
     )
   )
 

@@ -5,7 +5,7 @@
 \title{Addresses of the Insee APIs}
 \usage{
 insee_scopes(
-  api = c("Sirene V3", "Nomenclatures v1"),
+  api = c("Sirene - V3", "Nomenclatures - v1", "DonneesLocales - V0.1", "BDM - V1"),
   insee_url = getOption("apinsee.url")
 )
 }
@@ -39,6 +39,6 @@ l'adresse en modifiant l'option \code{apinsee.url} :
 insee_scopes()
 insee_scopes("Sirene")
 insee_scopes("Nomenclatures")
-insee_scopes(c("Sirene", "Nomenclatures"))
+insee_scopes(c("Sirene", "Nomenclatures", "DonneesLocales", "BDM"))
 }
 \keyword{internal}

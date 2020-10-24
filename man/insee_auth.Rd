@@ -11,7 +11,7 @@ insee_auth(
   key = Sys.getenv("INSEE_APP_KEY"),
   secret = Sys.getenv("INSEE_APP_SECRET"),
   validity_period = 86400,
-  api = c("Sirene V3", "Nomenclatures v1"),
+  api = c("Sirene - V3", "Nomenclatures - v1", "DonneesLocales - V0.1", "BDM - V1"),
   cache = FALSE,
   verbose = TRUE,
   insee_url = getOption("apinsee.url")
