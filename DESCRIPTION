@@ -18,10 +18,8 @@ Imports:
     R6,
     rlang (>= 0.3.0)
 Suggests:
-    covr,
     curl,
     httpuv,
-    pkgdown,
     testthat (>= 2.1.0),
     usethis
 Encoding: UTF-8

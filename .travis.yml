@@ -2,8 +2,12 @@
 
 language: R
 apt_packages:
+  # required by pkgdown
   - libharfbuzz-dev
   - libfribidi-dev
+r_packages:
+  - covr
+  - pkgdown
 cache: packages
 after_success:
   - Rscript -e 'covr::codecov()'
