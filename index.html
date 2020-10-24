@@ -147,138 +147,138 @@
 <span class="op">}</span></pre></div>
 <p>Dès lors, votre utilisateur (s’il utilise une application ayant souscrit à l’API Sirene et qu’il a correctement renseigné les variables d’environnement) aura à simplement exécuter la fonction <code>requete_sirene_unitaire()</code> de votre package :</p>
 <div class="sourceCode" id="cb6"><pre class="downlit">
-<span class="fu">requete_siren_unitaire</span><span class="op">(</span>siren <span class="op">=</span> <span class="st">"005520135"</span>, date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; $siren</span>
-<span class="co">#&gt; [1] "005520135"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $statutDiffusionUniteLegale</span>
-<span class="co">#&gt; [1] "O"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $dateCreationUniteLegale</span>
-<span class="co">#&gt; [1] "1955-01-01"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $sigleUniteLegale</span>
-<span class="co">#&gt; NULL</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $sexeUniteLegale</span>
-<span class="co">#&gt; NULL</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $prenom1UniteLegale</span>
-<span class="co">#&gt; NULL</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $prenom2UniteLegale</span>
-<span class="co">#&gt; NULL</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $prenom3UniteLegale</span>
-<span class="co">#&gt; NULL</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $prenom4UniteLegale</span>
-<span class="co">#&gt; NULL</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $prenomUsuelUniteLegale</span>
-<span class="co">#&gt; NULL</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $pseudonymeUniteLegale</span>
-<span class="co">#&gt; NULL</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $identifiantAssociationUniteLegale</span>
-<span class="co">#&gt; NULL</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $trancheEffectifsUniteLegale</span>
-<span class="co">#&gt; [1] "NN"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $anneeEffectifsUniteLegale</span>
-<span class="co">#&gt; NULL</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $dateDernierTraitementUniteLegale</span>
-<span class="co">#&gt; [1] "2009-09-26T08:36:53"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $nombrePeriodesUniteLegale</span>
-<span class="co">#&gt; [1] 8</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $categorieEntreprise</span>
-<span class="co">#&gt; NULL</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $anneeCategorieEntreprise</span>
-<span class="co">#&gt; NULL</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale</span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]</span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$dateFin</span>
-<span class="co">#&gt; NULL</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$dateDebut</span>
-<span class="co">#&gt; [1] "2007-11-19"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$etatAdministratifUniteLegale</span>
-<span class="co">#&gt; [1] "C"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$changementEtatAdministratifUniteLegale</span>
-<span class="co">#&gt; [1] TRUE</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$nomUniteLegale</span>
-<span class="co">#&gt; NULL</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$changementNomUniteLegale</span>
-<span class="co">#&gt; [1] FALSE</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$nomUsageUniteLegale</span>
-<span class="co">#&gt; NULL</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$changementNomUsageUniteLegale</span>
-<span class="co">#&gt; [1] FALSE</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$denominationUniteLegale</span>
-<span class="co">#&gt; [1] "CHANVI GESTION"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$changementDenominationUniteLegale</span>
-<span class="co">#&gt; [1] FALSE</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$denominationUsuelle1UniteLegale</span>
-<span class="co">#&gt; NULL</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$denominationUsuelle2UniteLegale</span>
-<span class="co">#&gt; NULL</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$denominationUsuelle3UniteLegale</span>
-<span class="co">#&gt; NULL</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$changementDenominationUsuelleUniteLegale</span>
-<span class="co">#&gt; [1] FALSE</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$categorieJuridiqueUniteLegale</span>
-<span class="co">#&gt; [1] "5710"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$changementCategorieJuridiqueUniteLegale</span>
-<span class="co">#&gt; [1] FALSE</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$activitePrincipaleUniteLegale</span>
-<span class="co">#&gt; [1] "74.1J"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$nomenclatureActivitePrincipaleUniteLegale</span>
-<span class="co">#&gt; [1] "NAFRev1"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$changementActivitePrincipaleUniteLegale</span>
-<span class="co">#&gt; [1] FALSE</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$nicSiegeUniteLegale</span>
-<span class="co">#&gt; [1] "00038"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$changementNicSiegeUniteLegale</span>
-<span class="co">#&gt; [1] FALSE</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$economieSocialeSolidaireUniteLegale</span>
-<span class="co">#&gt; NULL</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$changementEconomieSocialeSolidaireUniteLegale</span>
-<span class="co">#&gt; [1] FALSE</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$caractereEmployeurUniteLegale</span>
-<span class="co">#&gt; [1] "O"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodesUniteLegale[[1]]$changementCaractereEmployeurUniteLegale</span>
-<span class="co">#&gt; [1] FALSE</span></pre></div>
-<div id="conseil-aux-developpeurs-de-packages-utilisant-apinsee" class="section level3">
+<span class="fu">requete_siren_unitaire</span><span class="op">(</span>siren <span class="op">=</span> <span class="st">"005520135"</span>, date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></pre></div>
+<details><div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">#&gt; $siren</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt; [1] "005520135"</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt; $statutDiffusionUniteLegale</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt; [1] "O"</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt; $dateCreationUniteLegale</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt; [1] "1955-01-01"</span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#&gt; $sigleUniteLegale</span></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">#&gt; NULL</span></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="co">#&gt; $sexeUniteLegale</span></a>
+<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="co">#&gt; NULL</span></a>
+<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-16" data-line-number="16"><span class="co">#&gt; $prenom1UniteLegale</span></a>
+<a class="sourceLine" id="cb7-17" data-line-number="17"><span class="co">#&gt; NULL</span></a>
+<a class="sourceLine" id="cb7-18" data-line-number="18"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-19" data-line-number="19"><span class="co">#&gt; $prenom2UniteLegale</span></a>
+<a class="sourceLine" id="cb7-20" data-line-number="20"><span class="co">#&gt; NULL</span></a>
+<a class="sourceLine" id="cb7-21" data-line-number="21"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-22" data-line-number="22"><span class="co">#&gt; $prenom3UniteLegale</span></a>
+<a class="sourceLine" id="cb7-23" data-line-number="23"><span class="co">#&gt; NULL</span></a>
+<a class="sourceLine" id="cb7-24" data-line-number="24"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-25" data-line-number="25"><span class="co">#&gt; $prenom4UniteLegale</span></a>
+<a class="sourceLine" id="cb7-26" data-line-number="26"><span class="co">#&gt; NULL</span></a>
+<a class="sourceLine" id="cb7-27" data-line-number="27"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-28" data-line-number="28"><span class="co">#&gt; $prenomUsuelUniteLegale</span></a>
+<a class="sourceLine" id="cb7-29" data-line-number="29"><span class="co">#&gt; NULL</span></a>
+<a class="sourceLine" id="cb7-30" data-line-number="30"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-31" data-line-number="31"><span class="co">#&gt; $pseudonymeUniteLegale</span></a>
+<a class="sourceLine" id="cb7-32" data-line-number="32"><span class="co">#&gt; NULL</span></a>
+<a class="sourceLine" id="cb7-33" data-line-number="33"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-34" data-line-number="34"><span class="co">#&gt; $identifiantAssociationUniteLegale</span></a>
+<a class="sourceLine" id="cb7-35" data-line-number="35"><span class="co">#&gt; NULL</span></a>
+<a class="sourceLine" id="cb7-36" data-line-number="36"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-37" data-line-number="37"><span class="co">#&gt; $trancheEffectifsUniteLegale</span></a>
+<a class="sourceLine" id="cb7-38" data-line-number="38"><span class="co">#&gt; [1] "NN"</span></a>
+<a class="sourceLine" id="cb7-39" data-line-number="39"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-40" data-line-number="40"><span class="co">#&gt; $anneeEffectifsUniteLegale</span></a>
+<a class="sourceLine" id="cb7-41" data-line-number="41"><span class="co">#&gt; NULL</span></a>
+<a class="sourceLine" id="cb7-42" data-line-number="42"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-43" data-line-number="43"><span class="co">#&gt; $dateDernierTraitementUniteLegale</span></a>
+<a class="sourceLine" id="cb7-44" data-line-number="44"><span class="co">#&gt; [1] "2009-09-26T08:36:53"</span></a>
+<a class="sourceLine" id="cb7-45" data-line-number="45"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-46" data-line-number="46"><span class="co">#&gt; $nombrePeriodesUniteLegale</span></a>
+<a class="sourceLine" id="cb7-47" data-line-number="47"><span class="co">#&gt; [1] 8</span></a>
+<a class="sourceLine" id="cb7-48" data-line-number="48"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-49" data-line-number="49"><span class="co">#&gt; $categorieEntreprise</span></a>
+<a class="sourceLine" id="cb7-50" data-line-number="50"><span class="co">#&gt; NULL</span></a>
+<a class="sourceLine" id="cb7-51" data-line-number="51"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-52" data-line-number="52"><span class="co">#&gt; $anneeCategorieEntreprise</span></a>
+<a class="sourceLine" id="cb7-53" data-line-number="53"><span class="co">#&gt; NULL</span></a>
+<a class="sourceLine" id="cb7-54" data-line-number="54"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-55" data-line-number="55"><span class="co">#&gt; $periodesUniteLegale</span></a>
+<a class="sourceLine" id="cb7-56" data-line-number="56"><span class="co">#&gt; $periodesUniteLegale[[1]]</span></a>
+<a class="sourceLine" id="cb7-57" data-line-number="57"><span class="co">#&gt; $periodesUniteLegale[[1]]$dateFin</span></a>
+<a class="sourceLine" id="cb7-58" data-line-number="58"><span class="co">#&gt; NULL</span></a>
+<a class="sourceLine" id="cb7-59" data-line-number="59"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-60" data-line-number="60"><span class="co">#&gt; $periodesUniteLegale[[1]]$dateDebut</span></a>
+<a class="sourceLine" id="cb7-61" data-line-number="61"><span class="co">#&gt; [1] "2007-11-19"</span></a>
+<a class="sourceLine" id="cb7-62" data-line-number="62"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-63" data-line-number="63"><span class="co">#&gt; $periodesUniteLegale[[1]]$etatAdministratifUniteLegale</span></a>
+<a class="sourceLine" id="cb7-64" data-line-number="64"><span class="co">#&gt; [1] "C"</span></a>
+<a class="sourceLine" id="cb7-65" data-line-number="65"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-66" data-line-number="66"><span class="co">#&gt; $periodesUniteLegale[[1]]$changementEtatAdministratifUniteLegale</span></a>
+<a class="sourceLine" id="cb7-67" data-line-number="67"><span class="co">#&gt; [1] TRUE</span></a>
+<a class="sourceLine" id="cb7-68" data-line-number="68"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-69" data-line-number="69"><span class="co">#&gt; $periodesUniteLegale[[1]]$nomUniteLegale</span></a>
+<a class="sourceLine" id="cb7-70" data-line-number="70"><span class="co">#&gt; NULL</span></a>
+<a class="sourceLine" id="cb7-71" data-line-number="71"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-72" data-line-number="72"><span class="co">#&gt; $periodesUniteLegale[[1]]$changementNomUniteLegale</span></a>
+<a class="sourceLine" id="cb7-73" data-line-number="73"><span class="co">#&gt; [1] FALSE</span></a>
+<a class="sourceLine" id="cb7-74" data-line-number="74"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-75" data-line-number="75"><span class="co">#&gt; $periodesUniteLegale[[1]]$nomUsageUniteLegale</span></a>
+<a class="sourceLine" id="cb7-76" data-line-number="76"><span class="co">#&gt; NULL</span></a>
+<a class="sourceLine" id="cb7-77" data-line-number="77"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-78" data-line-number="78"><span class="co">#&gt; $periodesUniteLegale[[1]]$changementNomUsageUniteLegale</span></a>
+<a class="sourceLine" id="cb7-79" data-line-number="79"><span class="co">#&gt; [1] FALSE</span></a>
+<a class="sourceLine" id="cb7-80" data-line-number="80"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-81" data-line-number="81"><span class="co">#&gt; $periodesUniteLegale[[1]]$denominationUniteLegale</span></a>
+<a class="sourceLine" id="cb7-82" data-line-number="82"><span class="co">#&gt; [1] "CHANVI GESTION"</span></a>
+<a class="sourceLine" id="cb7-83" data-line-number="83"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-84" data-line-number="84"><span class="co">#&gt; $periodesUniteLegale[[1]]$changementDenominationUniteLegale</span></a>
+<a class="sourceLine" id="cb7-85" data-line-number="85"><span class="co">#&gt; [1] FALSE</span></a>
+<a class="sourceLine" id="cb7-86" data-line-number="86"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-87" data-line-number="87"><span class="co">#&gt; $periodesUniteLegale[[1]]$denominationUsuelle1UniteLegale</span></a>
+<a class="sourceLine" id="cb7-88" data-line-number="88"><span class="co">#&gt; NULL</span></a>
+<a class="sourceLine" id="cb7-89" data-line-number="89"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-90" data-line-number="90"><span class="co">#&gt; $periodesUniteLegale[[1]]$denominationUsuelle2UniteLegale</span></a>
+<a class="sourceLine" id="cb7-91" data-line-number="91"><span class="co">#&gt; NULL</span></a>
+<a class="sourceLine" id="cb7-92" data-line-number="92"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-93" data-line-number="93"><span class="co">#&gt; $periodesUniteLegale[[1]]$denominationUsuelle3UniteLegale</span></a>
+<a class="sourceLine" id="cb7-94" data-line-number="94"><span class="co">#&gt; NULL</span></a>
+<a class="sourceLine" id="cb7-95" data-line-number="95"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-96" data-line-number="96"><span class="co">#&gt; $periodesUniteLegale[[1]]$changementDenominationUsuelleUniteLegale</span></a>
+<a class="sourceLine" id="cb7-97" data-line-number="97"><span class="co">#&gt; [1] FALSE</span></a>
+<a class="sourceLine" id="cb7-98" data-line-number="98"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-99" data-line-number="99"><span class="co">#&gt; $periodesUniteLegale[[1]]$categorieJuridiqueUniteLegale</span></a>
+<a class="sourceLine" id="cb7-100" data-line-number="100"><span class="co">#&gt; [1] "5710"</span></a>
+<a class="sourceLine" id="cb7-101" data-line-number="101"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-102" data-line-number="102"><span class="co">#&gt; $periodesUniteLegale[[1]]$changementCategorieJuridiqueUniteLegale</span></a>
+<a class="sourceLine" id="cb7-103" data-line-number="103"><span class="co">#&gt; [1] FALSE</span></a>
+<a class="sourceLine" id="cb7-104" data-line-number="104"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-105" data-line-number="105"><span class="co">#&gt; $periodesUniteLegale[[1]]$activitePrincipaleUniteLegale</span></a>
+<a class="sourceLine" id="cb7-106" data-line-number="106"><span class="co">#&gt; [1] "74.1J"</span></a>
+<a class="sourceLine" id="cb7-107" data-line-number="107"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-108" data-line-number="108"><span class="co">#&gt; $periodesUniteLegale[[1]]$nomenclatureActivitePrincipaleUniteLegale</span></a>
+<a class="sourceLine" id="cb7-109" data-line-number="109"><span class="co">#&gt; [1] "NAFRev1"</span></a>
+<a class="sourceLine" id="cb7-110" data-line-number="110"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-111" data-line-number="111"><span class="co">#&gt; $periodesUniteLegale[[1]]$changementActivitePrincipaleUniteLegale</span></a>
+<a class="sourceLine" id="cb7-112" data-line-number="112"><span class="co">#&gt; [1] FALSE</span></a>
+<a class="sourceLine" id="cb7-113" data-line-number="113"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-114" data-line-number="114"><span class="co">#&gt; $periodesUniteLegale[[1]]$nicSiegeUniteLegale</span></a>
+<a class="sourceLine" id="cb7-115" data-line-number="115"><span class="co">#&gt; [1] "00038"</span></a>
+<a class="sourceLine" id="cb7-116" data-line-number="116"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-117" data-line-number="117"><span class="co">#&gt; $periodesUniteLegale[[1]]$changementNicSiegeUniteLegale</span></a>
+<a class="sourceLine" id="cb7-118" data-line-number="118"><span class="co">#&gt; [1] FALSE</span></a>
+<a class="sourceLine" id="cb7-119" data-line-number="119"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-120" data-line-number="120"><span class="co">#&gt; $periodesUniteLegale[[1]]$economieSocialeSolidaireUniteLegale</span></a>
+<a class="sourceLine" id="cb7-121" data-line-number="121"><span class="co">#&gt; NULL</span></a>
+<a class="sourceLine" id="cb7-122" data-line-number="122"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-123" data-line-number="123"><span class="co">#&gt; $periodesUniteLegale[[1]]$changementEconomieSocialeSolidaireUniteLegale</span></a>
+<a class="sourceLine" id="cb7-124" data-line-number="124"><span class="co">#&gt; [1] FALSE</span></a>
+<a class="sourceLine" id="cb7-125" data-line-number="125"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-126" data-line-number="126"><span class="co">#&gt; $periodesUniteLegale[[1]]$caractereEmployeurUniteLegale</span></a>
+<a class="sourceLine" id="cb7-127" data-line-number="127"><span class="co">#&gt; [1] "O"</span></a>
+<a class="sourceLine" id="cb7-128" data-line-number="128"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb7-129" data-line-number="129"><span class="co">#&gt; $periodesUniteLegale[[1]]$changementCaractereEmployeurUniteLegale</span></a>
+<a class="sourceLine" id="cb7-130" data-line-number="130"><span class="co">#&gt; [1] FALSE</span></a></code></pre></div>
+</details><div id="conseil-aux-developpeurs-de-packages-utilisant-apinsee" class="section level3">
 <h3 class="hasAnchor">
 <a href="#conseil-aux-developpeurs-de-packages-utilisant-apinsee" class="anchor"></a>Conseil aux développeurs de packages utilisant apinsee</h3>
 <p>Si vous testez du code utilisant <strong>apinsee</strong>, vous devez mettre le package <strong>httpuv</strong> dans la rubrique <code>Suggests</code> du fichier <code>DESCRIPTION</code> de votre package.</p>
@@ -288,14 +288,14 @@
 <h2 class="hasAnchor">
 <a href="#utilisation-interne-a-linsee" class="anchor"></a>Utilisation interne à l’Insee</h2>
 <p><strong>apinsee</strong> peut également être utilisé au sein de l’Insee pour les agents qui souhaiteraient accéder aux plateformes de test, recette ou pré-production. Le plus simple est de modifier l’option <code>apinsee.url</code>. La valeur par défaut de l’option <code>apinsee.url</code> est :</p>
-<div class="sourceCode" id="cb7"><pre class="downlit">
+<div class="sourceCode" id="cb8"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/base/options.html">getOption</a></span><span class="op">(</span><span class="st">"apinsee.url"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "https://api.insee.fr/"</span></pre></div>
 <p>Il vous suffit donc de rajouter avant d’exécuter vos scripts :</p>
-<div class="sourceCode" id="cb8"><pre class="downlit">
+<div class="sourceCode" id="cb9"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>apinsee.url <span class="op">=</span> <span class="st">"adresse.de.la.plateforme"</span><span class="op">)</span></pre></div>
 <p>Enfin, pour accéder à l’environnement de recette, il ne faut pas utiliser de proxy, vous devez donc également soit modifier les variables d’environnement <code>http_proxy</code> et <code>https_proxy</code> dans le fichier <code>.Renviron</code> (recommandé), soit rajouter :</p>
-<div class="sourceCode" id="cb9"><pre class="downlit">
+<div class="sourceCode" id="cb10"><pre class="downlit">
 <span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/set_config.html">set_config</a></span><span class="op">(</span><span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/use_proxy.html">use_proxy</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span><span class="op">)</span></pre></div>
 </div>
 <div id="licence" class="section level2">
