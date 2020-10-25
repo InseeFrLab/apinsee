@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+![GitHub top
+language](https://img.shields.io/github/languages/top/InseeFrLab/apinsee)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![Travis build

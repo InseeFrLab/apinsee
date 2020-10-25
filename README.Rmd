@@ -15,6 +15,7 @@ knitr::opts_chunk$set(
 # apinsee
 
 <!-- badges: start -->
+![GitHub top language](https://img.shields.io/github/languages/top/InseeFrLab/apinsee)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![Travis build status](https://travis-ci.org/InseeFrLab/apinsee.svg?branch=master)](https://travis-ci.org/InseeFrLab/apinsee)
 [![Codecov test coverage](https://codecov.io/gh/InseeFrLab/apinsee/branch/master/graph/badge.svg)](https://codecov.io/gh/InseeFrLab/apinsee?branch=master)
