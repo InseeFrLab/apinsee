@@ -35,8 +35,9 @@ d’accès. Le site [api.insee.fr](https://api.insee.fr/) recommande
 d’utiliser un nouveau jeton d’accès toutes les 24 heures.
 
 L’objectif du package **apinsee** est de faciliter la gestion et
-l’utilisation de ces jetons d’accès conformément à ces
-recommandations.
+l’utilisation de ces jetons d’accès conformément à ces recommandations
+: il permet de récupérer automatiquement, depuis R, un nouveau jeton
+d’accès valide pour une durée de 24 heures.
 
 ## Installation
 
