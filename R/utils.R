@@ -9,11 +9,11 @@ cache_in_memory <- function(token) {
   rlang::env_bind(.memory_cache, last_token = token)
 }
 
-load_from_memory_cache <- function(key) {
-  if (!nzchar(key)) {
+load_from_memory_cache <- function(app_key) {
+  if (missing(app_key) || !nzchar(app_key)) {
     return(rlang::env_get(.memory_cache, "last_token", NULL))
   }
-  rlang::env_get(.memory_cache, key, NULL)
+  rlang::env_get(.memory_cache, app_key, NULL)
 }
 
 clear_memory_cache <- function() {
