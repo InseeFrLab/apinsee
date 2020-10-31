@@ -7,7 +7,7 @@
 \usage{
 insee_token(
   app,
-  cache = getOption("httr_oauth_cache"),
+  cache = getOption("apinsee.httr_oauth_cache"),
   config_init = list(),
   credentials = NULL,
   validity_period = 86400,

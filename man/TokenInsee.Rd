@@ -27,26 +27,13 @@ courant est révoqué puis un nouveau jeton d'accès est généré).
 }
 }
 
-\section{Caching}{
+\section{Gestion du cache}{
 
-
-OAuth tokens are cached on disk in a file called \code{.httr-oauth}
-saved in the current working directory.  Caching is enabled if:
-\itemize{
-\item The session is interactive, and the user agrees to it, OR
-\item The \code{.httr-oauth} file is already present, OR
-\item \code{getOption("httr_oauth_cache")} is \code{TRUE}
-}
-
-You can suppress caching by setting the \code{httr_oauth_cache} option to
-\code{FALSE}.
-
-Tokens are cached based on their endpoint and parameters.
-
-The cache file should not be included in source code control or R packages
-(because it contains private information), so httr will automatically add
-the appropriate entries to \code{.gitignore} and \code{.Rbuildignore} if needed.
-
+Les jetons sont sauvegardés en cache dans un fichier nommé \code{.httr-oauth}
+situé dans le répertoire courant. Le cache est activé par défaut. L'option
+\code{apinsee.httr_oauth_cache} permet de spécifier un nom de fichier cache
+différent voire de désactiver le cache si la valeur est \code{FALSE}.
+Le fichier cache \strong{ne doit jamais} être mis sous contrôle de version.
 }
 
 \keyword{internal}

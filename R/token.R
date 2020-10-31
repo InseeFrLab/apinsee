@@ -20,7 +20,7 @@ NULL
 #' @keywords internal
 #' @encoding UTF-8
 #' @export
-insee_token <- function(app, cache = getOption("httr_oauth_cache"),
+insee_token <- function(app, cache = getOption("apinsee.httr_oauth_cache"),
                         config_init = list(), credentials = NULL,
                         validity_period = 86400, insee_url = getOption("apinsee.url"),
                         api = c("Sirene - V3", "Nomenclatures - v1", "DonneesLocales - V0.1", "BDM - V1")) {
@@ -75,7 +75,12 @@ insee_token <- function(app, cache = getOption("httr_oauth_cache"),
 #' * `refresh()` : rafraichit le jeton d'accès (le point d'accès de
 #' rafraichissement OAuth2 n'étant pas disponible, le jeton d'accès
 #' courant est révoqué puis un nouveau jeton d'accès est généré).
-#' @inheritSection httr::Token Caching
+#' @section Gestion du cache:
+#' Les jetons sont sauvegardés en cache dans un fichier nommé `.httr-oauth`
+#' situé dans le répertoire courant. Le cache est activé par défaut. L'option
+#' `apinsee.httr_oauth_cache` permet de spécifier un nom de fichier cache
+#' différent voire de désactiver le cache si la valeur est `FALSE`.
+#' Le fichier cache **ne doit jamais** être mis sous contrôle de version.
 #' @docType class
 #' @keywords internal
 #' @encoding UTF-8
