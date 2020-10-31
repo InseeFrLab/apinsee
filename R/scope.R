@@ -17,7 +17,10 @@
 #' insee_scopes("Sirene")
 #' insee_scopes("Nomenclatures")
 #' insee_scopes(c("Sirene", "Nomenclatures", "DonneesLocales", "BDM"))
-insee_scopes <- function(api = c("Sirene - V3", "Nomenclatures - v1", "DonneesLocales - V0.1", "BDM - V1"),
+insee_scopes <- function(api = c("Sirene - V3",
+                                 "Nomenclatures - v1",
+                                 "DonneesLocales - V0.1",
+                                 "BDM - V1"),
                          insee_url = getOption("apinsee.url")) {
   api <- match.arg(api, several.ok = TRUE)
 
@@ -40,7 +43,9 @@ insee_scopes <- function(api = c("Sirene - V3", "Nomenclatures - v1", "DonneesLo
   )
 
   modify_insee_url <- function(path) {
-    vapply(path, function(x) httr::modify_url(url = insee_url, path = x), character(1))
+    vapply(path,
+           function(x) httr::modify_url(url = insee_url, path = x),
+           character(1))
   }
 
   urls <- lapply(paths, modify_insee_url)

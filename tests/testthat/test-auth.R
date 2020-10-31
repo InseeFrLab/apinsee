@@ -56,7 +56,8 @@ test_that("insee_auth() can be used with several applications", {
   skip_if_no_app()
   clear_memory_cache()
   token <- insee_auth()
-  token2 <- insee_auth(key = Sys.getenv("INSEE_APP2_KEY"), secret = Sys.getenv("INSEE_APP2_SECRET"))
+  token2 <- insee_auth(key = Sys.getenv("INSEE_APP2_KEY"),
+                       secret = Sys.getenv("INSEE_APP2_SECRET"))
   expect_false(token$has_expired())
   expect_false(token2$has_expired())
   expect_length(as.list(apinsee:::.memory_cache), 3L)

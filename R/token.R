@@ -22,8 +22,12 @@ NULL
 #' @export
 insee_token <- function(app, cache = getOption("apinsee.httr_oauth_cache"),
                         config_init = list(), credentials = NULL,
-                        validity_period = 604800, insee_url = getOption("apinsee.url"),
-                        api = c("Sirene - V3", "Nomenclatures - v1", "DonneesLocales - V0.1", "BDM - V1")) {
+                        validity_period = 604800,
+                        insee_url = getOption("apinsee.url"),
+                        api = c("Sirene - V3",
+                                "Nomenclatures - v1",
+                                "DonneesLocales - V0.1",
+                                "BDM - V1")) {
   stopifnot(
     rlang::is_scalar_integerish(validity_period, finite = TRUE),
     validity_period > 0
@@ -115,8 +119,8 @@ TokenInsee <- R6::R6Class("TokenInsee", inherit = httr::Token2.0, list(
   },
 
   revoke = function() {
-    # httr:::revoke_oauth2.0() does not implement correctly the following specification:
-    # https://tools.ietf.org/html/rfc7009#section-2.1
+    # httr:::revoke_oauth2.0() does not implement correctly the following
+    # specification: https://tools.ietf.org/html/rfc7009#section-2.1
     # I will open an issue in r-lib/httr
     res <- httr::POST(
       self$endpoint$revoke,

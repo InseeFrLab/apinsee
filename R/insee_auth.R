@@ -26,7 +26,8 @@ NULL
 #'   souhaitez révoquer le jeton d'accès et vous authentifier à nouveau.
 #' @param appname nom de l'application.
 #' @param key,secret clef et secret du consommateur.
-#' @param validity_period entier, durée de validité du jeton d'accès en secondes.
+#' @param validity_period entier, durée de validité du jeton d'accès en
+#'   secondes.
 #' @param cache booléen indiquant si `apinsee` doit sauvegarder les jetons
 #'   d'accès dans un fichier cache, par défaut `.httr-oauth`.
 #' @param verbose booléen; souhaitez-vous des messages d'information ?
@@ -47,7 +48,8 @@ NULL
 #' library(apinsee)
 #' library(httr)
 #'
-#' # Set the environment variables INSEE_APP_KEY and INSEE_APP_SECRET in the .Renviron file
+#' # Set the environment variables INSEE_APP_KEY and INSEE_APP_SECRET
+#' # in the .Renviron file
 #' if (all(nzchar(Sys.getenv(c("INSEE_APP_KEY", "INSEE_APP_SECRET"))))) {
 #'   # retrieve the token
 #'   token <- insee_auth()
@@ -59,7 +61,10 @@ insee_auth <- function(new_auth = FALSE,
                        key = Sys.getenv("INSEE_APP_KEY"),
                        secret = Sys.getenv("INSEE_APP_SECRET"),
                        validity_period = 604800,
-                       api = c("Sirene - V3", "Nomenclatures - v1", "DonneesLocales - V0.1", "BDM - V1"),
+                       api = c("Sirene - V3",
+                               "Nomenclatures - v1",
+                               "DonneesLocales - V0.1",
+                               "BDM - V1"),
                        cache = getOption("apinsee.httr_oauth_cache"),
                        verbose = TRUE,
                        insee_url = getOption("apinsee.url")) {
@@ -104,7 +109,8 @@ insee_deauth <- function(verbose = TRUE) {
     }
     token$revoke()
     if (verbose) {
-      message("Removing token for application ", token$app$key, " stashed internally in 'apinsee'.")
+      message("Removing token for application ", token$app$key,
+              " stashed internally in 'apinsee'.")
     }
     rlang::env_unbind(.memory_cache, token$app$key)
   })

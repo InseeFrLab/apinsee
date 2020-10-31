@@ -25,7 +25,8 @@ souhaitez révoquer le jeton d'accès et vous authentifier à nouveau.}
 
 \item{key, secret}{clef et secret du consommateur.}
 
-\item{validity_period}{entier, durée de validité du jeton d'accès en secondes.}
+\item{validity_period}{entier, durée de validité du jeton d'accès en
+secondes.}
 
 \item{api}{Un vecteur de chaînes de caractères dont chaque élément comprend
 le ou les noms des API accessibles par l'application. La correspondance
@@ -90,7 +91,8 @@ Le fichier cache \strong{ne doit jamais} être mis sous contrôle de version.
 library(apinsee)
 library(httr)
 
-# Set the environment variables INSEE_APP_KEY and INSEE_APP_SECRET in the .Renviron file
+# Set the environment variables INSEE_APP_KEY and INSEE_APP_SECRET
+# in the .Renviron file
 if (all(nzchar(Sys.getenv(c("INSEE_APP_KEY", "INSEE_APP_SECRET"))))) {
   # retrieve the token
   token <- insee_auth()
