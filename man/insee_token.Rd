@@ -10,7 +10,7 @@ insee_token(
   cache = getOption("apinsee.httr_oauth_cache"),
   config_init = list(),
   credentials = NULL,
-  validity_period = 86400,
+  validity_period = 604800,
   insee_url = getOption("apinsee.url"),
   api = c("Sirene - V3", "Nomenclatures - v1", "DonneesLocales - V0.1", "BDM - V1")
 )

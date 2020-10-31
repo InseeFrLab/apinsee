@@ -12,7 +12,7 @@ insee_auth(
   secret = Sys.getenv("INSEE_APP_SECRET"),
   validity_period = 604800,
   api = c("Sirene - V3", "Nomenclatures - v1", "DonneesLocales - V0.1", "BDM - V1"),
-  cache = FALSE,
+  cache = getOption("apinsee.httr_oauth_cache"),
   verbose = TRUE,
   insee_url = getOption("apinsee.url")
 )
@@ -72,6 +72,15 @@ recette ou de pré-production. Dans ce cas, afin de rendre les programmes
 portables d'un environnement à un autre.il est préférable de déclarer
 l'adresse en modifiant l'option \code{apinsee.url} :
 \code{options(apinsee.url = "<URL>")}.
+}
+
+\section{Gestion du cache}{
+
+Les jetons sont sauvegardés en cache dans un fichier nommé \code{.httr-oauth}
+situé dans le répertoire courant. Le cache est activé par défaut. L'option
+\code{apinsee.httr_oauth_cache} permet de spécifier un nom de fichier cache
+différent voire de désactiver le cache si la valeur est \code{FALSE}.
+Le fichier cache \strong{ne doit jamais} être mis sous contrôle de version.
 }
 
 \examples{

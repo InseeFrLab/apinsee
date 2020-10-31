@@ -33,6 +33,7 @@ NULL
 #' @inheritParams insee_token
 #' @inheritParams insee_endpoint
 #' @inheritSection insee_endpoint Utilisation interne à l'Insee
+#' @inheritSection TokenInsee Gestion du cache
 #' @encoding UTF-8
 #'
 #' @return Un objet représentant un token pouvant être passé en valeur du
@@ -59,7 +60,7 @@ insee_auth <- function(new_auth = FALSE,
                        secret = Sys.getenv("INSEE_APP_SECRET"),
                        validity_period = 604800,
                        api = c("Sirene - V3", "Nomenclatures - v1", "DonneesLocales - V0.1", "BDM - V1"),
-                       cache = FALSE,
+                       cache = getOption("apinsee.httr_oauth_cache"),
                        verbose = TRUE,
                        insee_url = getOption("apinsee.url")) {
   if (new_auth) {
