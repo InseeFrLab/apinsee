@@ -7,3 +7,5 @@
 ^tests/testthat/\.httr-oauth$
 ^\.github$
 ^pkgdown$
+^_pkgdown\.yml$
+^docs$
