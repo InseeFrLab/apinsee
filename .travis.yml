@@ -11,7 +11,7 @@ r_packages:
 cache: packages
 after_success:
   - Rscript -e 'covr::codecov()'
-deploy:
-  provider: script
-  script: Rscript -e 'pkgdown::deploy_site_github(ssh_id = Sys.getenv("TRAVIS_DEPLOY_KEY"))'
-  skip_cleanup: true
+# deploy:
+#   provider: script
+#   script: Rscript -e 'pkgdown::deploy_site_github(ssh_id = Sys.getenv("TRAVIS_DEPLOY_KEY"))'
+#   skip_cleanup: true
