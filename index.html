@@ -4,7 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Ease access to Insee APIs.">
 <title>Manage Access to Insee APIs • apinsee</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -12,365 +13,372 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
-<script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="Manage Access to Insee APIs">
+<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Manage Access to Insee APIs">
 <meta property="og:description" content="Ease access to Insee APIs.">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body data-spy="scroll" data-target="#toc">
-    <div class="container template-home">
-      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">apinsee</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9000</span>
-      </span>
-    </div>
+<body>
+    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
+    
 
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
+    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
+    
+    <a class="navbar-brand me-2" href="index.html">apinsee</a>
+
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.9000</small>
+
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar" class="collapse navbar-collapse ms-3">
+      <ul class="navbar-nav me-auto">
+<li class="nav-item">
+  <a class="nav-link" href="reference/index.html">Reference</a>
 </li>
-<li>
-  <a href="reference/index.html">Reference</a>
-</li>
-<li>
-  <a href="news/index.html">Changelog</a>
+<li class="nav-item">
+  <a class="nav-link" href="news/index.html">Changelog</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="https://github.com/InseeFrLab/apinsee/">
+<form class="form-inline my-2 my-lg-0" role="search">
+        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="search.json" id="search-input" placeholder="Search for" autocomplete="off">
+</form>
+
+      <ul class="navbar-nav">
+<li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/InseeFrLab/apinsee/" aria-label="github">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
       </ul>
 </div>
-<!--/.nav-collapse -->
+
+    
   </div>
-<!--/.container -->
-</div>
-<!--/.navbar -->
-
-      
-
-      </header><div class="row">
-  <div class="contents col-md-9">
-<div id="apinsee" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#apinsee" class="anchor"></a>apinsee</h1></div>
+</nav><div class="container template-home">
+<div class="row">
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header"><h1 id="apinsee">apinsee<a class="anchor" aria-label="anchor" href="#apinsee"></a>
+</h1></div>
 <!-- badges: start -->
 
-<p><strong>apinsee</strong> est un package pour le langage R destiné à faciliter l’authentification aux API de l’Insee accessibles à l’adresse <a href="https://api.insee.fr/">api.insee.fr</a>.</p>
-<div id="avertissement" class="section level2">
-<h2 class="hasAnchor">
-<a href="#avertissement" class="anchor"></a>Avertissement</h2>
+<p><strong>apinsee</strong> est un package pour le langage R destiné à faciliter l’authentification aux API de l’Insee accessibles à l’adresse <a href="https://api.insee.fr/" class="external-link">api.insee.fr</a>.</p>
+<div class="section level2">
+<h2 id="avertissement">Avertissement<a class="anchor" aria-label="anchor" href="#avertissement"></a>
+</h2>
 <p><strong>Ce package est en cours de développement. Ses fonctionnalités peuvent évoluer.</strong></p>
 </div>
-<div id="motivation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#motivation" class="anchor"></a>Motivation</h2>
-<p>Comme toutes les API modernes, l’utilisation des API de l’Insee requiert d’utiliser une procédure d’authentification et de récupérer un jeton d’accès. Le site <a href="https://api.insee.fr/">api.insee.fr</a> recommande d’utiliser un nouveau jeton d’accès toutes les 24 heures.</p>
+<div class="section level2">
+<h2 id="motivation">Motivation<a class="anchor" aria-label="anchor" href="#motivation"></a>
+</h2>
+<p>Comme toutes les API modernes, l’utilisation des API de l’Insee requiert d’utiliser une procédure d’authentification et de récupérer un jeton d’accès. Le site <a href="https://api.insee.fr/" class="external-link">api.insee.fr</a> recommande d’utiliser un nouveau jeton d’accès toutes les 24 heures.</p>
 <p>L’objectif du package <strong>apinsee</strong> est de faciliter la gestion et l’utilisation de ces jetons d’accès conformément à ces recommandations : il permet de récupérer automatiquement, depuis R, un nouveau jeton d’accès valide pour une durée de 24 heures.</p>
 </div>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p>Vous pouvez installer la version de développement depuis <a href="https://github.com/">GitHub</a> en exécutant :</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"inseefrlab/apinsee"</span><span class="op">)</span></pre></div>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>Vous pouvez installer la version de développement depuis <a href="https://github.com/" class="external-link">GitHub</a> en exécutant :</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"inseefrlab/apinsee"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="exemple" class="section level2">
-<h2 class="hasAnchor">
-<a href="#exemple" class="anchor"></a>Exemple</h2>
-<div id="creer-une-application" class="section level3">
-<h3 class="hasAnchor">
-<a href="#creer-une-application" class="anchor"></a>Créer une application</h3>
-<p>Créez une application sur le site <a href="https://api.insee.fr/">api.insee.fr</a> : voir <a href="https://api.insee.fr/catalogue/site/themes/wso2/subthemes/insee/pages/help.jag">l’aide</a>.</p>
+<div class="section level2">
+<h2 id="exemple">Exemple<a class="anchor" aria-label="anchor" href="#exemple"></a>
+</h2>
+<div class="section level3">
+<h3 id="créer-une-application">Créer une application<a class="anchor" aria-label="anchor" href="#cr%C3%A9er-une-application"></a>
+</h3>
+<dl>
+<dt>Créez une application sur le site <a href="https://api.insee.fr/" class="external-link">api.insee.fr</a>
+</dt>
+<dd>
+voir <a href="https://api.insee.fr/catalogue/site/themes/wso2/subthemes/insee/pages/help.jag" class="external-link">l’aide</a>.
+</dd>
+</dl>
 <p>Sauvegardez la clef du consommateur dans la variable d’environnement <code>INSEE_APP_KEY</code> et le secret du consommateur dans la variable d’environnement <code>INSEE_APP_SECRET</code> : la méthode la plus sûre est d’enregistrer ces deux variables d’environnement dans votre fichier <code>.Renviron</code>.</p>
-<p>Pour accéder facilement au fichier <code>.Renviron</code>, vous pouvez utiliser la commande <code><a href="https://usethis.r-lib.org/reference/edit.html">usethis::edit_r_environ("user")</a></code>.</p>
+<p>Pour accéder facilement au fichier <code>.Renviron</code>, vous pouvez utiliser la commande <code>usethis::edit_r_environ("user")</code>.</p>
 <p>Ajoutez ces deux lignes dans votre fichier <code>.Renviron</code> :</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="va">INSEE_APP_KEY=</span>xxxxxxxxxxxxxxxxxx    # <span class="ex">clef</span> du consommateur</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="va">INSEE_APP_SECRET=</span>yyyyyyyyyyyyyyyyyy <span class="co"># secret du consommateur</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># clef du consommateur</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="va">INSEE_APP_KEY</span><span class="op">=</span>xxxxxxxxxxxxxxxxxx</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a> <span class="co"># secret du consommateur</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="va">INSEE_APP_SECRET</span><span class="op">=</span>yyyyyyyyyyyyyyyyyy</span></code></pre></div>
 <p>Sauvegardez ce fichier et <strong>redémarrez votre session R</strong>.</p>
 </div>
-<div id="creer-et-utiliser-un-jeton-dacces" class="section level3">
-<h3 class="hasAnchor">
-<a href="#creer-et-utiliser-un-jeton-dacces" class="anchor"></a>Créer et utiliser un jeton d’accès</h3>
+<div class="section level3">
+<h3 id="créer-et-utiliser-un-jeton-daccès">Créer et utiliser un jeton d’accès<a class="anchor" aria-label="anchor" href="#cr%C3%A9er-et-utiliser-un-jeton-dacc%C3%A8s"></a>
+</h3>
 <p>Le package <strong>apinsee</strong> ne comprend qu’une fonction utile : <code><a href="reference/insee_auth.html">insee_auth()</a></code>. Cette fonction permet de récupérer un jeton d’accès à votre application. Ce jeton d’accès peut être affecté à un objet et est sauvegardé de façon interne dans votre session R. Vous pouvez donc simplement exécuter la fonction :</p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="va">token</span> <span class="op">&lt;-</span> <span class="fu">apinsee</span><span class="fu">::</span><span class="fu"><a href="reference/insee_auth.html">insee_auth</a></span><span class="op">(</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">token</span> <span class="op">&lt;-</span> <span class="fu">apinsee</span><span class="fu">::</span><span class="fu"><a href="reference/insee_auth.html">insee_auth</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>Les jetons d’accès ayant une durée de validité limitée, cette fonction permet de récupérer automatiquement un jeton valide.</p>
-<p>Ce token peut ensuite être utilisé comme valeur du paramètre <code>token</code> de la fonction <code><a href="https://httr.r-lib.org/reference/config.html">httr::config()</a></code> :</p>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://httr.r-lib.org/">httr</a></span><span class="op">)</span>
-<span class="fu"><a href="https://httr.r-lib.org/reference/set_config.html">set_config</a></span><span class="op">(</span><span class="fu"><a href="https://httr.r-lib.org/reference/config.html">config</a></span><span class="op">(</span>token <span class="op">=</span> <span class="va">token</span><span class="op">)</span><span class="op">)</span></pre></div>
+<p>Ce token peut ensuite être utilisé comme valeur du paramètre <code>token</code> de la fonction <code><a href="https://httr.r-lib.org/reference/config.html" class="external-link">httr::config()</a></code> :</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://httr.r-lib.org/" class="external-link">httr</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://httr.r-lib.org/reference/set_config.html" class="external-link">set_config</a></span><span class="op">(</span><span class="fu"><a href="https://httr.r-lib.org/reference/config.html" class="external-link">config</a></span><span class="op">(</span>token <span class="op">=</span> <span class="va">token</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Dès lors, vous pouvez accéder aux API de l’Insee auxquelles votre application a souscrites.</p>
 </div>
 </div>
-<div id="utiliser-apinsee-dans-votre-package" class="section level2">
-<h2 class="hasAnchor">
-<a href="#utiliser-apinsee-dans-votre-package" class="anchor"></a>Utiliser <strong>apinsee</strong> dans votre package</h2>
+<div class="section level2">
+<h2 id="utiliser-apinsee-dans-votre-package">Utiliser <strong>apinsee</strong> dans votre package<a class="anchor" aria-label="anchor" href="#utiliser-apinsee-dans-votre-package"></a>
+</h2>
 <p>Imaginons que vous souhaitiez développer un package qui accède à l’API Sirene. Vous pouvez créer la fonction suivante :</p>
-<div class="sourceCode" id="cb5"><pre class="downlit">
-<span class="va">requete_siren_unitaire</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">siren</span>, <span class="va">date</span> <span class="op">=</span> <span class="cn">NULL</span>,
-                                   <span class="va">token</span> <span class="op">=</span> <span class="fu">apinsee</span><span class="fu">::</span><span class="fu"><a href="reference/insee_auth.html">insee_auth</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">url</span> <span class="op">&lt;-</span> <span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/modify_url.html">modify_url</a></span><span class="op">(</span>
-    <span class="st">"https://api.insee.fr/"</span>, 
-    path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"entreprises"</span>, <span class="st">"sirene"</span>, <span class="st">"V3"</span>, <span class="st">"siren"</span>, <span class="va">siren</span><span class="op">)</span>, 
-    query <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>date <span class="op">=</span> <span class="va">date</span><span class="op">)</span>
-  <span class="op">)</span>
-  
-  <span class="va">res</span> <span class="op">&lt;-</span> <span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/GET.html">GET</a></span><span class="op">(</span><span class="va">url</span>, <span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/config.html">config</a></span><span class="op">(</span>token <span class="op">=</span> <span class="va">token</span><span class="op">)</span><span class="op">)</span>
-  
-  <span class="co"># check for rate limit</span>
-  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/status_code.html">status_code</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span>, <span class="fl">429L</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/Sys.sleep.html">Sys.sleep</a></span><span class="op">(</span><span class="fl">60</span><span class="op">)</span>
-    <span class="va">res</span> <span class="op">&lt;-</span> <span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/GET.html">GET</a></span><span class="op">(</span><span class="va">url</span>, <span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/config.html">config</a></span><span class="op">(</span>token <span class="op">=</span> <span class="va">token</span><span class="op">)</span><span class="op">)</span>
-  <span class="op">}</span>
-  
-  <span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/stop_for_status.html">stop_for_status</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span>
-  <span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/content.html">content</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span><span class="op">[[</span><span class="st">"uniteLegale"</span><span class="op">]</span><span class="op">]</span>
-<span class="op">}</span></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">requete_siren_unitaire</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">siren</span>, <span class="va">date</span> <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>                                   <span class="va">token</span> <span class="op">=</span> <span class="fu">apinsee</span><span class="fu">::</span><span class="fu"><a href="reference/insee_auth.html">insee_auth</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">url</span> <span class="op">&lt;-</span> <span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/modify_url.html" class="external-link">modify_url</a></span><span class="op">(</span></span>
+<span>    <span class="st">"https://api.insee.fr/"</span>, </span>
+<span>    path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"entreprises"</span>, <span class="st">"sirene"</span>, <span class="st">"V3"</span>, <span class="st">"siren"</span>, <span class="va">siren</span><span class="op">)</span>, </span>
+<span>    query <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>date <span class="op">=</span> <span class="va">date</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">res</span> <span class="op">&lt;-</span> <span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/GET.html" class="external-link">GET</a></span><span class="op">(</span><span class="va">url</span>, <span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/config.html" class="external-link">config</a></span><span class="op">(</span>token <span class="op">=</span> <span class="va">token</span><span class="op">)</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co"># check for rate limit</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical</a></span><span class="op">(</span><span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/status_code.html" class="external-link">status_code</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span>, <span class="fl">429L</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/Sys.sleep.html" class="external-link">Sys.sleep</a></span><span class="op">(</span><span class="fl">60</span><span class="op">)</span></span>
+<span>    <span class="va">res</span> <span class="op">&lt;-</span> <span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/GET.html" class="external-link">GET</a></span><span class="op">(</span><span class="va">url</span>, <span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/config.html" class="external-link">config</a></span><span class="op">(</span>token <span class="op">=</span> <span class="va">token</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span>  </span>
+<span>  <span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/stop_for_status.html" class="external-link">stop_for_status</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
+<span>  <span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/content.html" class="external-link">content</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span><span class="op">[[</span><span class="st">"uniteLegale"</span><span class="op">]</span><span class="op">]</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 <p>Dès lors, votre utilisateur (s’il utilise une application ayant souscrit à l’API Sirene et qu’il a correctement renseigné les variables d’environnement) aura à simplement exécuter la fonction <code>requete_sirene_unitaire()</code> de votre package :</p>
-<div class="sourceCode" id="cb6"><pre class="downlit">
-<span class="fu">requete_siren_unitaire</span><span class="op">(</span>siren <span class="op">=</span> <span class="st">"005520135"</span>, date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></pre></div>
-<details><div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">#&gt; $siren</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt; [1] "005520135"</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt; $statutDiffusionUniteLegale</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt; [1] "O"</span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt; $dateCreationUniteLegale</span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt; [1] "1955-01-01"</span></a>
-<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#&gt; $sigleUniteLegale</span></a>
-<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">#&gt; NULL</span></a>
-<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="co">#&gt; $sexeUniteLegale</span></a>
-<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="co">#&gt; NULL</span></a>
-<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-16" data-line-number="16"><span class="co">#&gt; $prenom1UniteLegale</span></a>
-<a class="sourceLine" id="cb7-17" data-line-number="17"><span class="co">#&gt; NULL</span></a>
-<a class="sourceLine" id="cb7-18" data-line-number="18"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-19" data-line-number="19"><span class="co">#&gt; $prenom2UniteLegale</span></a>
-<a class="sourceLine" id="cb7-20" data-line-number="20"><span class="co">#&gt; NULL</span></a>
-<a class="sourceLine" id="cb7-21" data-line-number="21"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-22" data-line-number="22"><span class="co">#&gt; $prenom3UniteLegale</span></a>
-<a class="sourceLine" id="cb7-23" data-line-number="23"><span class="co">#&gt; NULL</span></a>
-<a class="sourceLine" id="cb7-24" data-line-number="24"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-25" data-line-number="25"><span class="co">#&gt; $prenom4UniteLegale</span></a>
-<a class="sourceLine" id="cb7-26" data-line-number="26"><span class="co">#&gt; NULL</span></a>
-<a class="sourceLine" id="cb7-27" data-line-number="27"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-28" data-line-number="28"><span class="co">#&gt; $prenomUsuelUniteLegale</span></a>
-<a class="sourceLine" id="cb7-29" data-line-number="29"><span class="co">#&gt; NULL</span></a>
-<a class="sourceLine" id="cb7-30" data-line-number="30"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-31" data-line-number="31"><span class="co">#&gt; $pseudonymeUniteLegale</span></a>
-<a class="sourceLine" id="cb7-32" data-line-number="32"><span class="co">#&gt; NULL</span></a>
-<a class="sourceLine" id="cb7-33" data-line-number="33"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-34" data-line-number="34"><span class="co">#&gt; $identifiantAssociationUniteLegale</span></a>
-<a class="sourceLine" id="cb7-35" data-line-number="35"><span class="co">#&gt; NULL</span></a>
-<a class="sourceLine" id="cb7-36" data-line-number="36"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-37" data-line-number="37"><span class="co">#&gt; $trancheEffectifsUniteLegale</span></a>
-<a class="sourceLine" id="cb7-38" data-line-number="38"><span class="co">#&gt; [1] "NN"</span></a>
-<a class="sourceLine" id="cb7-39" data-line-number="39"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-40" data-line-number="40"><span class="co">#&gt; $anneeEffectifsUniteLegale</span></a>
-<a class="sourceLine" id="cb7-41" data-line-number="41"><span class="co">#&gt; NULL</span></a>
-<a class="sourceLine" id="cb7-42" data-line-number="42"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-43" data-line-number="43"><span class="co">#&gt; $dateDernierTraitementUniteLegale</span></a>
-<a class="sourceLine" id="cb7-44" data-line-number="44"><span class="co">#&gt; [1] "2009-09-26T08:36:53"</span></a>
-<a class="sourceLine" id="cb7-45" data-line-number="45"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-46" data-line-number="46"><span class="co">#&gt; $nombrePeriodesUniteLegale</span></a>
-<a class="sourceLine" id="cb7-47" data-line-number="47"><span class="co">#&gt; [1] 8</span></a>
-<a class="sourceLine" id="cb7-48" data-line-number="48"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-49" data-line-number="49"><span class="co">#&gt; $categorieEntreprise</span></a>
-<a class="sourceLine" id="cb7-50" data-line-number="50"><span class="co">#&gt; NULL</span></a>
-<a class="sourceLine" id="cb7-51" data-line-number="51"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-52" data-line-number="52"><span class="co">#&gt; $anneeCategorieEntreprise</span></a>
-<a class="sourceLine" id="cb7-53" data-line-number="53"><span class="co">#&gt; NULL</span></a>
-<a class="sourceLine" id="cb7-54" data-line-number="54"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-55" data-line-number="55"><span class="co">#&gt; $periodesUniteLegale</span></a>
-<a class="sourceLine" id="cb7-56" data-line-number="56"><span class="co">#&gt; $periodesUniteLegale[[1]]</span></a>
-<a class="sourceLine" id="cb7-57" data-line-number="57"><span class="co">#&gt; $periodesUniteLegale[[1]]$dateFin</span></a>
-<a class="sourceLine" id="cb7-58" data-line-number="58"><span class="co">#&gt; NULL</span></a>
-<a class="sourceLine" id="cb7-59" data-line-number="59"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-60" data-line-number="60"><span class="co">#&gt; $periodesUniteLegale[[1]]$dateDebut</span></a>
-<a class="sourceLine" id="cb7-61" data-line-number="61"><span class="co">#&gt; [1] "2007-11-19"</span></a>
-<a class="sourceLine" id="cb7-62" data-line-number="62"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-63" data-line-number="63"><span class="co">#&gt; $periodesUniteLegale[[1]]$etatAdministratifUniteLegale</span></a>
-<a class="sourceLine" id="cb7-64" data-line-number="64"><span class="co">#&gt; [1] "C"</span></a>
-<a class="sourceLine" id="cb7-65" data-line-number="65"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-66" data-line-number="66"><span class="co">#&gt; $periodesUniteLegale[[1]]$changementEtatAdministratifUniteLegale</span></a>
-<a class="sourceLine" id="cb7-67" data-line-number="67"><span class="co">#&gt; [1] TRUE</span></a>
-<a class="sourceLine" id="cb7-68" data-line-number="68"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-69" data-line-number="69"><span class="co">#&gt; $periodesUniteLegale[[1]]$nomUniteLegale</span></a>
-<a class="sourceLine" id="cb7-70" data-line-number="70"><span class="co">#&gt; NULL</span></a>
-<a class="sourceLine" id="cb7-71" data-line-number="71"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-72" data-line-number="72"><span class="co">#&gt; $periodesUniteLegale[[1]]$changementNomUniteLegale</span></a>
-<a class="sourceLine" id="cb7-73" data-line-number="73"><span class="co">#&gt; [1] FALSE</span></a>
-<a class="sourceLine" id="cb7-74" data-line-number="74"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-75" data-line-number="75"><span class="co">#&gt; $periodesUniteLegale[[1]]$nomUsageUniteLegale</span></a>
-<a class="sourceLine" id="cb7-76" data-line-number="76"><span class="co">#&gt; NULL</span></a>
-<a class="sourceLine" id="cb7-77" data-line-number="77"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-78" data-line-number="78"><span class="co">#&gt; $periodesUniteLegale[[1]]$changementNomUsageUniteLegale</span></a>
-<a class="sourceLine" id="cb7-79" data-line-number="79"><span class="co">#&gt; [1] FALSE</span></a>
-<a class="sourceLine" id="cb7-80" data-line-number="80"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-81" data-line-number="81"><span class="co">#&gt; $periodesUniteLegale[[1]]$denominationUniteLegale</span></a>
-<a class="sourceLine" id="cb7-82" data-line-number="82"><span class="co">#&gt; [1] "CHANVI GESTION"</span></a>
-<a class="sourceLine" id="cb7-83" data-line-number="83"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-84" data-line-number="84"><span class="co">#&gt; $periodesUniteLegale[[1]]$changementDenominationUniteLegale</span></a>
-<a class="sourceLine" id="cb7-85" data-line-number="85"><span class="co">#&gt; [1] FALSE</span></a>
-<a class="sourceLine" id="cb7-86" data-line-number="86"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-87" data-line-number="87"><span class="co">#&gt; $periodesUniteLegale[[1]]$denominationUsuelle1UniteLegale</span></a>
-<a class="sourceLine" id="cb7-88" data-line-number="88"><span class="co">#&gt; NULL</span></a>
-<a class="sourceLine" id="cb7-89" data-line-number="89"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-90" data-line-number="90"><span class="co">#&gt; $periodesUniteLegale[[1]]$denominationUsuelle2UniteLegale</span></a>
-<a class="sourceLine" id="cb7-91" data-line-number="91"><span class="co">#&gt; NULL</span></a>
-<a class="sourceLine" id="cb7-92" data-line-number="92"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-93" data-line-number="93"><span class="co">#&gt; $periodesUniteLegale[[1]]$denominationUsuelle3UniteLegale</span></a>
-<a class="sourceLine" id="cb7-94" data-line-number="94"><span class="co">#&gt; NULL</span></a>
-<a class="sourceLine" id="cb7-95" data-line-number="95"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-96" data-line-number="96"><span class="co">#&gt; $periodesUniteLegale[[1]]$changementDenominationUsuelleUniteLegale</span></a>
-<a class="sourceLine" id="cb7-97" data-line-number="97"><span class="co">#&gt; [1] FALSE</span></a>
-<a class="sourceLine" id="cb7-98" data-line-number="98"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-99" data-line-number="99"><span class="co">#&gt; $periodesUniteLegale[[1]]$categorieJuridiqueUniteLegale</span></a>
-<a class="sourceLine" id="cb7-100" data-line-number="100"><span class="co">#&gt; [1] "5710"</span></a>
-<a class="sourceLine" id="cb7-101" data-line-number="101"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-102" data-line-number="102"><span class="co">#&gt; $periodesUniteLegale[[1]]$changementCategorieJuridiqueUniteLegale</span></a>
-<a class="sourceLine" id="cb7-103" data-line-number="103"><span class="co">#&gt; [1] FALSE</span></a>
-<a class="sourceLine" id="cb7-104" data-line-number="104"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-105" data-line-number="105"><span class="co">#&gt; $periodesUniteLegale[[1]]$activitePrincipaleUniteLegale</span></a>
-<a class="sourceLine" id="cb7-106" data-line-number="106"><span class="co">#&gt; [1] "74.1J"</span></a>
-<a class="sourceLine" id="cb7-107" data-line-number="107"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-108" data-line-number="108"><span class="co">#&gt; $periodesUniteLegale[[1]]$nomenclatureActivitePrincipaleUniteLegale</span></a>
-<a class="sourceLine" id="cb7-109" data-line-number="109"><span class="co">#&gt; [1] "NAFRev1"</span></a>
-<a class="sourceLine" id="cb7-110" data-line-number="110"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-111" data-line-number="111"><span class="co">#&gt; $periodesUniteLegale[[1]]$changementActivitePrincipaleUniteLegale</span></a>
-<a class="sourceLine" id="cb7-112" data-line-number="112"><span class="co">#&gt; [1] FALSE</span></a>
-<a class="sourceLine" id="cb7-113" data-line-number="113"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-114" data-line-number="114"><span class="co">#&gt; $periodesUniteLegale[[1]]$nicSiegeUniteLegale</span></a>
-<a class="sourceLine" id="cb7-115" data-line-number="115"><span class="co">#&gt; [1] "00038"</span></a>
-<a class="sourceLine" id="cb7-116" data-line-number="116"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-117" data-line-number="117"><span class="co">#&gt; $periodesUniteLegale[[1]]$changementNicSiegeUniteLegale</span></a>
-<a class="sourceLine" id="cb7-118" data-line-number="118"><span class="co">#&gt; [1] FALSE</span></a>
-<a class="sourceLine" id="cb7-119" data-line-number="119"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-120" data-line-number="120"><span class="co">#&gt; $periodesUniteLegale[[1]]$economieSocialeSolidaireUniteLegale</span></a>
-<a class="sourceLine" id="cb7-121" data-line-number="121"><span class="co">#&gt; NULL</span></a>
-<a class="sourceLine" id="cb7-122" data-line-number="122"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-123" data-line-number="123"><span class="co">#&gt; $periodesUniteLegale[[1]]$changementEconomieSocialeSolidaireUniteLegale</span></a>
-<a class="sourceLine" id="cb7-124" data-line-number="124"><span class="co">#&gt; [1] FALSE</span></a>
-<a class="sourceLine" id="cb7-125" data-line-number="125"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-126" data-line-number="126"><span class="co">#&gt; $periodesUniteLegale[[1]]$caractereEmployeurUniteLegale</span></a>
-<a class="sourceLine" id="cb7-127" data-line-number="127"><span class="co">#&gt; [1] "O"</span></a>
-<a class="sourceLine" id="cb7-128" data-line-number="128"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-129" data-line-number="129"><span class="co">#&gt; $periodesUniteLegale[[1]]$changementCaractereEmployeurUniteLegale</span></a>
-<a class="sourceLine" id="cb7-130" data-line-number="130"><span class="co">#&gt; [1] FALSE</span></a></code></pre></div>
-</details><div id="conseil-aux-developpeurs-de-packages-utilisant-apinsee" class="section level3">
-<h3 class="hasAnchor">
-<a href="#conseil-aux-developpeurs-de-packages-utilisant-apinsee" class="anchor"></a>Conseil aux développeurs de packages utilisant apinsee</h3>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">requete_siren_unitaire</span><span class="op">(</span>siren <span class="op">=</span> <span class="st">"005520135"</span>, date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.Date</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<details><div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $siren</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "005520135"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $statutDiffusionUniteLegale</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "O"</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $dateCreationUniteLegale</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "1955-01-01"</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sigleUniteLegale</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sexeUniteLegale</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $prenom1UniteLegale</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $prenom2UniteLegale</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $prenom3UniteLegale</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $prenom4UniteLegale</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $prenomUsuelUniteLegale</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $pseudonymeUniteLegale</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $identifiantAssociationUniteLegale</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $trancheEffectifsUniteLegale</span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "NN"</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $anneeEffectifsUniteLegale</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $dateDernierTraitementUniteLegale</span></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "2009-09-26T08:36:53"</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $nombrePeriodesUniteLegale</span></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 8</span></span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $categorieEntreprise</span></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $anneeCategorieEntreprise</span></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale</span></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]</span></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$dateFin</span></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$dateDebut</span></span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "2007-11-19"</span></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$etatAdministratifUniteLegale</span></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "C"</span></span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$changementEtatAdministratifUniteLegale</span></span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$nomUniteLegale</span></span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$changementNomUniteLegale</span></span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$nomUsageUniteLegale</span></span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$changementNomUsageUniteLegale</span></span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$denominationUniteLegale</span></span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "CHANVI GESTION"</span></span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$changementDenominationUniteLegale</span></span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$denominationUsuelle1UniteLegale</span></span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$denominationUsuelle2UniteLegale</span></span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$denominationUsuelle3UniteLegale</span></span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$changementDenominationUsuelleUniteLegale</span></span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$categorieJuridiqueUniteLegale</span></span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "5710"</span></span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$changementCategorieJuridiqueUniteLegale</span></span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$activitePrincipaleUniteLegale</span></span>
+<span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "74.1J"</span></span>
+<span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$nomenclatureActivitePrincipaleUniteLegale</span></span>
+<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "NAFRev1"</span></span>
+<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$changementActivitePrincipaleUniteLegale</span></span>
+<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$nicSiegeUniteLegale</span></span>
+<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "00038"</span></span>
+<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$changementNicSiegeUniteLegale</span></span>
+<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$economieSocialeSolidaireUniteLegale</span></span>
+<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$changementEconomieSocialeSolidaireUniteLegale</span></span>
+<span id="cb7-124"><a href="#cb7-124" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb7-125"><a href="#cb7-125" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-126"><a href="#cb7-126" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$caractereEmployeurUniteLegale</span></span>
+<span id="cb7-127"><a href="#cb7-127" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "O"</span></span>
+<span id="cb7-128"><a href="#cb7-128" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-129"><a href="#cb7-129" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $periodesUniteLegale[[1]]$changementCaractereEmployeurUniteLegale</span></span>
+<span id="cb7-130"><a href="#cb7-130" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
+</details><div class="section level3">
+<h3 id="conseil-aux-développeurs-de-packages-utilisant-apinsee">Conseil aux développeurs de packages utilisant apinsee<a class="anchor" aria-label="anchor" href="#conseil-aux-d%C3%A9veloppeurs-de-packages-utilisant-apinsee"></a>
+</h3>
 <p>Si vous testez du code utilisant <strong>apinsee</strong>, vous devez mettre le package <strong>httpuv</strong> dans la rubrique <code>Suggests</code> du fichier <code>DESCRIPTION</code> de votre package.</p>
 </div>
 </div>
-<div id="utilisation-interne-a-linsee" class="section level2">
-<h2 class="hasAnchor">
-<a href="#utilisation-interne-a-linsee" class="anchor"></a>Utilisation interne à l’Insee</h2>
+<div class="section level2">
+<h2 id="utilisation-interne-à-linsee">Utilisation interne à l’Insee<a class="anchor" aria-label="anchor" href="#utilisation-interne-%C3%A0-linsee"></a>
+</h2>
 <p><strong>apinsee</strong> peut également être utilisé au sein de l’Insee pour les agents qui souhaiteraient accéder aux plateformes de test, recette ou pré-production. Le plus simple est de modifier l’option <code>apinsee.url</code>. La valeur par défaut de l’option <code>apinsee.url</code> est :</p>
-<div class="sourceCode" id="cb8"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/options.html">getOption</a></span><span class="op">(</span><span class="st">"apinsee.url"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "https://api.insee.fr/"</span></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"apinsee.url"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "https://api.insee.fr/"</span></span></code></pre></div>
 <p>Il vous suffit donc de rajouter avant d’exécuter vos scripts :</p>
-<div class="sourceCode" id="cb9"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>apinsee.url <span class="op">=</span> <span class="st">"adresse.de.la.plateforme"</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>apinsee.url <span class="op">=</span> <span class="st">"adresse.de.la.plateforme"</span><span class="op">)</span></span></code></pre></div>
 <p>Enfin, pour accéder à l’environnement de recette, il ne faut pas utiliser de proxy, vous devez donc également soit modifier les variables d’environnement <code>http_proxy</code> et <code>https_proxy</code> dans le fichier <code>.Renviron</code> (recommandé), soit rajouter :</p>
-<div class="sourceCode" id="cb10"><pre class="downlit">
-<span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/set_config.html">set_config</a></span><span class="op">(</span><span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/use_proxy.html">use_proxy</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/set_config.html" class="external-link">set_config</a></span><span class="op">(</span><span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/use_proxy.html" class="external-link">use_proxy</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="licence" class="section level2">
-<h2 class="hasAnchor">
-<a href="#licence" class="anchor"></a>Licence</h2>
+<div class="section level2">
+<h2 id="licence">Licence<a class="anchor" aria-label="anchor" href="#licence"></a>
+</h2>
 <p>Le code source de ce projet est publié sous licence MIT.</p>
 </div>
 </div>
-  </div>
-
-  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <div class="links">
-<h2>Links</h2>
+  </main><aside class="col-md-3"><div class="links">
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/InseeFrLab/apinsee/">https://​github.com/​InseeFrLab/​apinsee/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/InseeFrLab/apinsee/issues">https://​github.com/​InseeFrLab/​apinsee/​issues</a>
-</li>
+<li><a href="https://github.com/InseeFrLab/apinsee/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/InseeFrLab/apinsee/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li>
-<a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a>
+<a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a>
 </li>
 </ul>
 </div>
+
 <div class="community">
-<h2>Community</h2>
+<h2 data-toc-skip>Community</h2>
 <ul class="list-unstyled">
 <li><a href="CONTRIBUTING.html">Contributing guide</a></li>
 </ul>
 </div>
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing apinsee</a></li>
+</ul>
+</div>
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Romain Lesur <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-0721-5595" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li><a href="authors.html">All authors...</a></li>
+<li>Romain Lesur <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-0721-5595" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><a href="authors.html">More about authors...</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
-<li><a href="https://travis-ci.org/InseeFrLab/apinsee"><img src="https://travis-ci.org/InseeFrLab/apinsee.svg?branch=master" alt="Travis build status"></a></li>
-<li><a href="https://codecov.io/gh/InseeFrLab/apinsee?branch=master"><img src="https://codecov.io/gh/InseeFrLab/apinsee/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://cran.r-project.org/package=apinsee"><img src="https://www.r-pkg.org/badges/version/apinsee" alt="CRAN status"></a></li>
-<li><a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License:MIT"></a></li>
+<li><a href="https://www.tidyverse.org/lifecycle/#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://travis-ci.org/InseeFrLab/apinsee" class="external-link"><img src="https://travis-ci.org/InseeFrLab/apinsee.svg?branch=master" alt="Travis build status"></a></li>
+<li><a href="https://codecov.io/gh/InseeFrLab/apinsee?branch=master" class="external-link"><img src="https://codecov.io/gh/InseeFrLab/apinsee/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://cran.r-project.org/package=apinsee" class="external-link"><img src="https://www.r-pkg.org/badges/version/apinsee" alt="CRAN status"></a></li>
+<li><a href="https://opensource.org/licenses/MIT" class="external-link"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License:MIT"></a></li>
 </ul>
 </div>
-</div>
-</div>
 
-
-      <footer><div class="copyright">
-  <p>Developed by Romain Lesur.</p>
+  </aside>
 </div>
 
-<div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+
+    <footer><div class="pkgdown-footer-left">
+  <p></p>
+<p>Developed by Romain Lesur.</p>
 </div>
 
-      </footer>
+<div class="pkgdown-footer-right">
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+</div>
+
+    </footer>
 </div>
 
   
 
+  
 
   </body>
 </html>
